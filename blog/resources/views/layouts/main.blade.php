@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/style_main.css')}}">
 </head>
 
-<body class=" w-screen h-screen flex font-thin ">
+<body class=" w-screen h-screen flex font-thin overflow-x-hidden">
 
     <nav id="sidebar" class="w-20 h-full bg-zinc-200 transition-all ease-linear duration-300 flex flex-col fixed z-10">
         <div class="w-full h-1/6 flex items-center justify-center">

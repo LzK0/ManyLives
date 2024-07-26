@@ -10,11 +10,162 @@ Home
 
 @section('content')
 
-<section class="w-full h-5/6 bg-sky-400 flex items-center justify-center" id="atck">
-    <div class="w-3/5 h-2/5 bg-white flex flex-col items-center justify-center gap-2">
-        <h1 class="font-mono text-8xl text-slate-700"><b class="text-purple-600">M</b>any<b class="text-purple-600">L</b>ives
+<section class="w-full h-5/6 flex items-center justify-center" id="atck">
+    <div class="w-4/5 h-2/5 bg-white flex flex-col items-center justify-center gap-2  md:w-4/6">
+        <h1 class="font-mono text-5xl sm:text-6xl md:text-7xl text-slate-700"><b class="text-purple-600">M</b>any<b class="text-purple-600">L</b>ives
         </h1>
-        <h4 class="text-3xl text-slate-700">Nosso <b class="text-purple-600">blog</b> de noticias gerais</h4>
+        <h4 class="text-lg text-slate-700">Nosso <b class="text-purple-600">blog</b> de noticias gerais</h4>
+    </div>
+</section>
+<section class="w-full bg-white flex flex-col items-center p-3 gap-3" style="height: 400%">
+    <article class="w-full h-1/6  border border-zinc-400">
+        <div class="cards-post w-full h-1/2 bg-[url('{{asset('images/perfilGato.jpg')}}')]">
+        </div>
+        <div class="cards w-full h-1/2  flex flex-col p-4">
+            <div class="w-full h-1/3 flex items-center gap-2">
+                <div class="w-14 h-5/6 rounded-full bg-zinc-900">
+                    <img src="{{asset('images/perfilGato.jpg')}}" alt="" class="w-full h-full rounded-full">
+                </div>
+                <div class="w-2/3 h-2/3">
+                    <p>Victor SIlva</p>
+                    <p>12/12/2022</p>
+                </div>
+            </div>
+            <div class="w-full h-1/3 flex items-center border-b border-b-zinc-400">
+                <h3 class="text-lg font-bold">Titulo bem criatiavo para esse teste né pode falar</h3>
+            </div>
+            <div class="w-full h-1/3 flex items-center justify-end pr-6">
+                <div class=""><i class="fa-regular fa-heart text-red-500"></i>3</div>
+            </div>
+        </div>
+    </article>
+    <article class="w-full h-1/6  border border-zinc-400">
+        <div class="cards-post w-full h-1/2 bg-[url('{{asset('images/perfilGato.jpg')}}')]">
+        </div>
+        <div class="cards w-full h-1/2  flex flex-col p-4">
+            <div class="w-full h-1/3 flex items-center gap-2">
+                <div class="w-14 h-5/6 rounded-full bg-zinc-900">
+                    <img src="{{asset('images/perfilGato.jpg')}}" alt="" class="w-full h-full rounded-full">
+                </div>
+                <div class="w-2/3 h-2/3">
+                    <p>Victor SIlva</p>
+                    <p>12/12/2022</p>
+                </div>
+            </div>
+            <div class="w-full h-1/3 flex items-center border-b border-b-zinc-400">
+                <h3 class="text-lg font-bold">Titulo bem criatiavo para esse teste né pode falar</h3>
+            </div>
+            <div class="w-full h-1/3 flex items-center justify-end pr-6">
+                <div class=""><i class="fa-regular fa-heart text-red-500"></i>3</div>
+            </div>
+        </div>
+    </article>
+    <article class="w-full h-1/6  border border-zinc-400">
+        <div class="cards-post w-full h-1/2 bg-[url('{{asset('images/perfilGato.jpg')}}')]">
+        </div>
+        <div class="cards w-full h-1/2  flex flex-col p-4">
+            <div class="w-full h-1/3 flex items-center gap-2">
+                <div class="w-14 h-5/6 rounded-full bg-zinc-900">
+                    <img src="{{asset('images/perfilGato.jpg')}}" alt="" class="w-full h-full rounded-full">
+                </div>
+                <div class="w-2/3 h-2/3">
+                    <p>Victor SIlva</p>
+                    <p>12/12/2022</p>
+                </div>
+            </div>
+            <div class="w-full h-1/3 flex items-center border-b border-b-zinc-400">
+                <h3 class="text-lg font-bold">Titulo bem criatiavo para esse teste né pode falar</h3>
+            </div>
+            <div class="w-full h-1/3 flex items-center justify-end pr-6">
+                <div class=""><i class="fa-regular fa-heart text-red-500"></i>3</div>
+            </div>
+        </div>
+    </article>
+    <article class="w-full h-1/6  border border-zinc-400">
+        <div class="cards-post w-full h-1/2 bg-[url('{{asset('images/perfilGato.jpg')}}')]">
+        </div>
+        <div class="cards w-full h-1/2  flex flex-col p-4">
+            <div class="w-full h-1/3 flex items-center gap-2">
+                <div class="w-14 h-5/6 rounded-full bg-zinc-900">
+                    <img src="{{asset('images/perfilGato.jpg')}}" alt="" class="w-full h-full rounded-full">
+                </div>
+                <div class="w-2/3 h-2/3">
+                    <p>Victor SIlva</p>
+                    <p>12/12/2022</p>
+                </div>
+            </div>
+            <div class="w-full h-1/3 flex items-center border-b border-b-zinc-400">
+                <h3 class="text-lg font-bold">Titulo bem criatiavo para esse teste né pode falar</h3>
+            </div>
+            <div class="w-full h-1/3 flex items-center justify-end pr-6">
+                <div class=""><i class="fa-regular fa-heart text-red-500"></i>3</div>
+            </div>
+        </div>
+    </article>
+    <article class="w-full h-1/6  border border-zinc-400">
+        <div class="cards-post w-full h-1/2 bg-[url('{{asset('images/perfilGato.jpg')}}')]">
+        </div>
+        <div class="cards w-full h-1/2  flex flex-col p-4">
+            <div class="w-full h-1/3 flex items-center gap-2">
+                <div class="w-14 h-5/6 rounded-full bg-zinc-900">
+                    <img src="{{asset('images/perfilGato.jpg')}}" alt="" class="w-full h-full rounded-full">
+                </div>
+                <div class="w-2/3 h-2/3">
+                    <p>Victor SIlva</p>
+                    <p>12/12/2022</p>
+                </div>
+            </div>
+            <div class="w-full h-1/3 flex items-center border-b border-b-zinc-400">
+                <h3 class="text-lg font-bold">Titulo bem criatiavo para esse teste né pode falar</h3>
+            </div>
+            <div class="w-full h-1/3 flex items-center justify-end pr-6">
+                <div class=""><i class="fa-regular fa-heart text-red-500"></i>3</div>
+            </div>
+        </div>
+    </article>
+    <article class="w-full h-1/6  border border-zinc-400">
+        <div class="cards-post w-full h-1/2 bg-[url('{{asset('images/perfilGato.jpg')}}')]">
+        </div>
+        <div class="cards w-full h-1/2  flex flex-col p-4">
+            <div class="w-full h-1/3 flex items-center gap-2">
+                <div class="w-14 h-5/6 rounded-full bg-zinc-900">
+                    <img src="{{asset('images/perfilGato.jpg')}}" alt="" class="w-full h-full rounded-full">
+                </div>
+                <div class="w-2/3 h-2/3">
+                    <p>Victor SIlva</p>
+                    <p>12/12/2022</p>
+                </div>
+            </div>
+            <div class="w-full h-1/3 flex items-center border-b border-b-zinc-400">
+                <h3 class="text-lg font-bold">Titulo bem criatiavo para esse teste né pode falar</h3>
+            </div>
+            <div class="w-full h-1/3 flex items-center justify-end pr-6">
+                <div class=""><i class="fa-regular fa-heart text-red-500"></i>3</div>
+            </div>
+        </div>
+    </article>
+</section>
+<section class="h-3/5 w-full bg-zinc-800 text-white p-5">
+    <div class="w-full h-1/2 flex items-center justify-center flex-col gap-20">
+        <p class="">Projeto feito por <i class="text-purple-500">Victor Silva Antunes Rodrigues</i></p>
+        <p>Tecnologias utilizadas:</p>
+    </div>
+    <div class="w-full h-1/3 grid grid-cols-3 gap-5 p-4 text-sm">
+        <div class="flex items-center justify-center text-center flex-1 transition-all ease-linear duration-300 rounded-md bg-orange-500 hover:bg-orange-600">
+            <p>HTML5</p>
+        </div>
+        <div class="flex items-center justify-center text-center flex-1 transition-all ease-linear duration-300 rounded-md bg-sky-500 hover:bg-sky-600">
+            <p>CSS (Tailwind)</p>
+        </div>
+        <div class="flex items-center justify-center text-center flex-1 transition-all ease-linear duration-300 rounded-md bg-purple-500 hover:bg-purple-600">
+            <p>PHP (Laravel)</p>
+        </div>
+        <div class="flex items-center justify-center text-center col-start-1 col-end-3 transition-all ease-linear duration-300 rounded-md bg-yellow-500 hover:bg-yellow-600">
+            <p>Javascript (Ajax)</p>
+        </div>
+        <div class="flex items-center justify-center text-center flex-1 transition-all ease-linear duration-300 rounded-md bg-gray-500 hover:bg-gray-600">
+            <p>MySQL (Database)</p>
+        </div>
     </div>
 </section>
 
