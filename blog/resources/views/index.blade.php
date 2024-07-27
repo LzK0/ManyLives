@@ -27,11 +27,13 @@ md:flex-wrap md:flex-row md:justify-center md:p-3 md:gap-8 md:h-[87rem]
 lg:gap-4 lg:h-[60rem]" id="container-posts">
     <article class="w-full h-16 flex items-center justify-start p-3
     md:pl-16
-    xl:pl-28">
+    xl:pl-32">
         <input type="text" class="py-1 rounded-lg absolute px-7 outline-0 border-1 border-zinc-800 focus:outline-purple-300
         md:pr-20
-        lg:pr-40" maxlength="60" placeholder="Pesquisar título...">
+        lg:pr-40" maxlength="60" placeholder="Pesquisar título..." id="live-search">
     </article>
+
+    <div id="show"></div>
 
     @foreach ($posts as $post)
     <article class="w-full h-1/6  border border-zinc-400
@@ -42,10 +44,10 @@ lg:gap-4 lg:h-[60rem]" id="container-posts">
         </div>
         <div class="cards w-full h-1/2  flex flex-col p-4">
             <div class="w-full h-1/3 flex items-center gap-2">
-                <div class="w-14 h-5/6 rounded-full bg-zinc-900">
+                <div class="w-12 h-[3rem] rounded-full bg-zinc-900">
                     <img src="Images/{{User::find($post->user_id)->image}}" alt="" class="w-full h-full rounded-full">
                 </div>
-                <div class="w-2/3 h-2/3">
+                <div class="w-2/3 h-6/6">
                     <p>
                         {{User::find($post->user_id)->name}}
                     </p>
@@ -56,7 +58,10 @@ lg:gap-4 lg:h-[60rem]" id="container-posts">
                 <a href="" class="text-lg font-bold hover:text-purple-600">{{$post->title}}</a>
             </div>
             <div class="w-full h-1/3 flex items-center justify-end pr-6">
-                <div class=""><i class="fa-regular fa-heart text-red-500 cursor-pointer"></i> 3</div>
+                <div class="w-11 h-11  flex items-center justify-center gap-1"><i class="effect-likes fa-regular fa-heart text-red-500 cursor-pointer"></i>
+                    <p class="likes">2</p>
+                </div>
+                <input type="hidden" value="{{$post->user_id}}" class="val-likes">
             </div>
         </div>
     </article>
@@ -91,4 +96,32 @@ xl:px-60">
     </div>
 </section>
 
+@endsection
+
+@section('js')
+@extends('layouts.footer_links')
+<script>
+    $(document).ready(function() {
+        $('#live-search').on('keyup', function() {
+            $value = $(this).val();
+            $.ajax({
+                type: 'get',
+                url: 'search',
+                data: {
+                    'search': $value
+                },
+                success: function(data) {
+                    $('#show').html(data);
+                }
+            });
+        });
+        $('.effect-likes').on('click', function() {
+            var id = $('.val-likes').val();
+            alert(id)
+            $.ajax({
+
+            });
+        });
+    });
+</script>
 @endsection
