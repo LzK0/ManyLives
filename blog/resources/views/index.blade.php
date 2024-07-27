@@ -28,153 +28,38 @@ lg:gap-4 lg:h-[60rem]" id="container-posts">
         md:pr-20
         lg:pr-40" maxlength="60" placeholder="Pesquisar título...">
     </article>
-    <article class="w-full h-1/6  border border-zinc-400
-    md:w-2/5 md:h-[25rem] 
-    lg:w-[30%] lg:p-1
-    xl:w-[27%]">
-        <div class="cards-post w-full h-1/2 bg-[url('{{asset('images/perfilGato.jpg')}}')]">
-        </div>
-        <div class="cards w-full h-1/2  flex flex-col p-4">
-            <div class="w-full h-1/3 flex items-center gap-2">
-                <div class="w-14 h-5/6 rounded-full bg-zinc-900">
-                    <img src="{{asset('images/perfilGato.jpg')}}" alt="" class="w-full h-full rounded-full">
-                </div>
-                <div class="w-2/3 h-2/3">
-                    <p>Victor SIlva</p>
-                    <p>12/12/2022</p>
-                </div>
-            </div>
-            <div class="w-full h-2/3 flex items-center border-b border-b-zinc-400">
-                <a href="" class="text-lg font-bold hover:text-purple-600">Titulo bem criatiavo para esse teste né pode falar</a>
-            </div>
-            <div class="w-full h-1/3 flex items-center justify-end pr-6">
-                <div class=""><i class="fa-regular fa-heart text-red-500 cursor-pointer"></i>3</div>
-            </div>
-        </div>
-    </article>
-    <article class="w-full h-1/6  border border-zinc-400
-    md:w-2/5 md:h-[25rem] 
-    lg:w-[30%] lg:p-1
-    xl:w-[27%]">
-        <div class="cards-post w-full h-1/2 bg-[url('{{asset('images/perfilGato.jpg')}}')]">
-        </div>
-        <div class="cards w-full h-1/2  flex flex-col p-4">
-            <div class="w-full h-1/3 flex items-center gap-2">
-                <div class="w-14 h-5/6 rounded-full bg-zinc-900">
-                    <img src="{{asset('images/perfilGato.jpg')}}" alt="" class="w-full h-full rounded-full">
-                </div>
-                <div class="w-2/3 h-2/3">
-                    <p>Victor SIlva</p>
-                    <p>12/12/2022</p>
-                </div>
-            </div>
-            <div class="w-full h-2/3 flex items-center border-b border-b-zinc-400">
-                <a href="" class="text-lg font-bold hover:text-purple-600">Titulo bem criatiavo para esse teste né pode falar</a>
-            </div>
-            <div class="w-full h-1/3 flex items-center justify-end pr-6">
-                <div class=""><i class="fa-regular fa-heart text-red-500 cursor-pointer"></i>3</div>
-            </div>
-        </div>
-    </article>
-    <article class="w-full h-1/6  border border-zinc-400
-    md:w-2/5 md:h-[25rem] 
-    lg:w-[30%] lg:p-1
-    xl:w-[27%]">
-        <div class="cards-post w-full h-1/2 bg-[url('{{asset('images/perfilGato.jpg')}}')]">
-        </div>
-        <div class="cards w-full h-1/2  flex flex-col p-4">
-            <div class="w-full h-1/3 flex items-center gap-2">
-                <div class="w-14 h-5/6 rounded-full bg-zinc-900">
-                    <img src="{{asset('images/perfilGato.jpg')}}" alt="" class="w-full h-full rounded-full">
-                </div>
-                <div class="w-2/3 h-2/3">
-                    <p>Victor SIlva</p>
-                    <p>12/12/2022</p>
-                </div>
-            </div>
-            <div class="w-full h-2/3 flex items-center border-b border-b-zinc-400">
-                <a href="" class="text-lg font-bold hover:text-purple-600">Titulo bem criatiavo para esse teste né pode falar</a>
-            </div>
-            <div class="w-full h-1/3 flex items-center justify-end pr-6">
-                <div class=""><i class="fa-regular fa-heart text-red-500 cursor-pointer"></i>3</div>
-            </div>
-        </div>
-    </article>
-    <article class="w-full h-1/6  border border-zinc-400
-    md:w-2/5 md:h-[25rem] 
-    lg:w-[30%] lg:p-1
-    xl:w-[27%]">
-        <div class="cards-post w-full h-1/2 bg-[url('{{asset('images/perfilGato.jpg')}}')]">
-        </div>
-        <div class="cards w-full h-1/2  flex flex-col p-4">
-            <div class="w-full h-1/3 flex items-center gap-2">
-                <div class="w-14 h-5/6 rounded-full bg-zinc-900">
-                    <img src="{{asset('images/perfilGato.jpg')}}" alt="" class="w-full h-full rounded-full">
-                </div>
-                <div class="w-2/3 h-2/3">
-                    <p>Victor SIlva</p>
-                    <p>12/12/2022</p>
-                </div>
-            </div>
-            <div class="w-full h-2/3 flex items-center border-b border-b-zinc-400">
-                <a href="" class="text-lg font-bold hover:text-purple-600">Titulo bem criatiavo para esse teste né pode falar</a>
-            </div>
-            <div class="w-full h-1/3 flex items-center justify-end pr-6">
-                <div class=""><i class="fa-regular fa-heart text-red-500 cursor-pointer"></i>3</div>
-            </div>
-        </div>
-    </article>
-    <article class="w-full h-1/6  border border-zinc-400
-    md:w-2/5 md:h-[25rem] 
-    lg:w-[30%] lg:p-1
-    xl:w-[27%]">
-        <div class="cards-post w-full h-1/2 bg-[url('{{asset('images/perfilGato.jpg')}}')]">
-        </div>
-        <div class="cards w-full h-1/2  flex flex-col p-4">
-            <div class="w-full h-1/3 flex items-center gap-2">
-                <div class="w-14 h-5/6 rounded-full bg-zinc-900">
-                    <img src="{{asset('images/perfilGato.jpg')}}" alt="" class="w-full h-full rounded-full">
-                </div>
-                <div class="w-2/3 h-2/3">
-                    <p>Victor SIlva</p>
-                    <p>12/12/2022</p>
-                </div>
-            </div>
-            <div class="w-full h-2/3 flex items-center border-b border-b-zinc-400">
-                <a href="" class="text-lg font-bold hover:text-purple-600">Titulo bem criatiavo para esse teste né pode falar</a>
-            </div>
-            <div class="w-full h-1/3 flex items-center justify-end pr-6">
-                <div class=""><i class="fa-regular fa-heart text-red-500 cursor-pointer"></i>3</div>
-            </div>
-        </div>
-    </article>
-    <article class="w-full h-1/6  border border-zinc-400
-    md:w-2/5 md:h-[25rem] 
-    lg:w-[30%] lg:p-1
-    xl:w-[27%]">
-        <div class="cards-post w-full h-1/2 bg-[url('{{asset('images/perfilGato.jpg')}}')]">
-        </div>
-        <div class="cards w-full h-1/2  flex flex-col p-4">
-            <div class="w-full h-1/3 flex items-center gap-2">
-                <div class="w-14 h-5/6 rounded-full bg-zinc-900">
-                    <img src="{{asset('images/perfilGato.jpg')}}" alt="" class="w-full h-full rounded-full">
-                </div>
-                <div class="w-2/3 h-2/3">
-                    <p>Victor SIlva</p>
-                    <p>12/12/2022</p>
-                </div>
-            </div>
-            <div class="w-full h-2/3 flex items-center border-b border-b-zinc-400">
-                <a href="" class="text-lg font-bold hover:text-purple-600">Titulo bem criatiavo para esse teste né pode falar</a>
-            </div>
-            <div class="w-full h-1/3 flex items-center justify-end pr-6">
-                <div class=""><i class="fa-regular fa-heart text-red-500 cursor-pointer"></i>3</div>
-            </div>
-        </div>
-    </article>
-</section>
 
-<section class="h-3/5 w-full bg-zinc-800 text-white p-5 
+    @foreach ($posts as $post)
+    <article class="w-full h-1/6  border border-zinc-400
+    md:w-2/5 md:h-[25rem] 
+    lg:w-[30%] lg:p-1
+    xl:w-[27%]">
+        <div class="cards-post w-full h-1/2 bg-[url('{{asset('images/perfilGato.jpg')}}')]">
+        </div>
+        <div class="cards w-full h-1/2  flex flex-col p-4">
+            <div class="w-full h-1/3 flex items-center gap-2">
+                <div class="w-14 h-5/6 rounded-full bg-zinc-900">
+                    <img src="images/{{}}" alt="" class="w-full h-full rounded-full">
+                </div>
+                <div class="w-2/3 h-2/3">
+                    <p>{{$post->user->name}}</p>
+                    <p>{{date('d/m/Y', strtotime($post->publicado))}}</p>
+                </div>
+            </div>
+            <div class="w-full h-2/3 flex items-center border-b border-b-zinc-400">
+                <a href="" class="text-lg font-bold hover:text-purple-600">{{$post->title}}</a>
+            </div>
+            <div class="w-full h-1/3 flex items-center justify-end pr-6">
+                <div class=""><i class="fa-regular fa-heart text-red-500 cursor-pointer"></i>    3</div>
+            </div>
+        </div>
+    </article>
+
+    @endforeach
+
+</section>
+<section class="h-[20rem] w-full bg-zinc-800 text-white p-5
+    md:h-2/5 
 lg:px-20
 xl:px-60">
     <div class="w-full h-1/2 flex items-center justify-center flex-col gap-20">
@@ -182,19 +67,19 @@ xl:px-60">
         <p>Tecnologias utilizadas:</p>
     </div>
     <div class="w-full h-1/3 grid grid-cols-3 gap-5 p-4 text-sm">
-        <div class="flex items-center justify-center text-center flex-1 transition-all ease-linear duration-300 rounded-md bg-orange-500 hover:bg-orange-600">
+        <div class="sm:py-3 py-1 flex items-center justify-center text-center flex-1 transition-all ease-linear duration-300 rounded-md bg-orange-500 hover:bg-orange-600">
             <p>HTML5</p>
         </div>
-        <div class="flex items-center justify-center text-center flex-1 transition-all ease-linear duration-300 rounded-md bg-sky-500 hover:bg-sky-600">
+        <div class="sm:py-3 py-1  flex items-center justify-center text-center flex-1 transition-all ease-linear duration-300 rounded-md bg-sky-500 hover:bg-sky-600">
             <p>CSS (Tailwind)</p>
         </div>
-        <div class="flex items-center justify-center text-center flex-1 transition-all ease-linear duration-300 rounded-md bg-yellow-500 hover:bg-yellow-600">
+        <div class="sm:py-3 py-1  flex items-center justify-center text-center flex-1 transition-all ease-linear duration-300 rounded-md bg-yellow-500 hover:bg-yellow-600">
             <p>Javascript (Ajax)</p>
         </div>
-        <div class="flex items-center justify-center text-center col-start-1 col-end-3 transition-all ease-linear duration-300 rounded-md bg-purple-500 hover:bg-purple-600">
+        <div class="sm:py-3 py-1  flex items-center justify-center text-center col-start-1 col-end-3 transition-all ease-linear duration-300 rounded-md bg-purple-500 hover:bg-purple-600">
             <p>PHP (Laravel)</p>
         </div>
-        <div class="flex items-center justify-center text-center flex-1 transition-all ease-linear duration-300 rounded-md bg-gray-500 hover:bg-gray-600">
+        <div class="sm:py-3 py-1  flex items-center justify-center text-center flex-1 transition-all ease-linear duration-300 rounded-md bg-gray-500 hover:bg-gray-600">
             <p>MySQL (Database)</p>
         </div>
     </div>
