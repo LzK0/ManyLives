@@ -8,6 +8,10 @@ Home
 {{asset('css/style_index.css')}}
 @endsection
 
+@php
+use App\Models\User;
+@endphp
+
 @section('content')
 
 <section class="w-full h-5/6 flex items-center justify-center" id="atck">
@@ -39,10 +43,12 @@ lg:gap-4 lg:h-[60rem]" id="container-posts">
         <div class="cards w-full h-1/2  flex flex-col p-4">
             <div class="w-full h-1/3 flex items-center gap-2">
                 <div class="w-14 h-5/6 rounded-full bg-zinc-900">
-                    <img src="images/" alt="" class="w-full h-full rounded-full">
+                    <img src="Images/{{User::find($post->user_id)->image}}" alt="" class="w-full h-full rounded-full">
                 </div>
                 <div class="w-2/3 h-2/3">
-                    <p>{{$post->user}}</p>
+                    <p>
+                        {{User::find($post->user_id)->name}}
+                    </p>
                     <p>{{date('d/m/Y', strtotime($post->publicado))}}</p>
                 </div>
             </div>

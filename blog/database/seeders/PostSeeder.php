@@ -18,55 +18,55 @@ class PostSeeder extends Seeder
             "title" => "My First Post",
             "description" => "This is my first post.",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "publicado" => "2022-01-01",
+            "published_at" => "2022-01-01",
             "like" => 1,
-            "image_posts" => "nenhuma",
-            "user_id" => 1
+            "image_post" => "nenhuma",
+            "user_id" => 17
         ]);
         Post::create([
             "title" => "My second Post",
             "description" => "This is my first post.",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "publicado" => "2021-01-01",
+            "published_at" => "2021-01-01",
             "like" => 0,
-            "image_posts" => "nenhuma",
-            "user_id" => 3
+            "image_post" => "nenhuma",
+            "user_id" => 18
         ]);
         Post::create([
             "title" => "My sla Post",
             "description" => "This is my first post.",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "publicado" => "2024-01-01",
+            "published_at" => "2024-01-01",
             "like" => 1,
-            "image_posts" => "nenhuma",
-            "user_id" => 2
+            "image_post" => "nenhuma",
+            "user_id" => 19
         ]);
         Post::create([
             "title" => "My First Post",
             "description" => "This is my first post.",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "publicado" => "2022-01-01",
+            "published_at" => "2022-01-01",
             "like" => 1,
-            "image_posts" => "nenhuma",
-            "user_id" => 1
+            "image_post" => "nenhuma",
+            "user_id" => 19
         ]);
         Post::create([
             "title" => "My sla Post",
             "description" => "This is my first post.",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "publicado" => "2024-01-01",
+            "published_at" => "2024-01-01",
             "like" => 1,
-            "image_posts" => "nenhuma",
-            "user_id" => 2
+            "image_post" => "nenhuma",
+            "user_id" => 19
         ]);
         Post::create([
             "title" => "My second Post",
             "description" => "This is my first post.",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "publicado" => "2021-01-01",
+            "published_at" => "2021-01-01",
             "like" => 0,
-            "image_posts" => "nenhuma",
-            "user_id" => 3
+            "image_post" => "nenhuma",
+            "user_id" => 17
         ]);
     }
 }

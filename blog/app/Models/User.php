@@ -25,6 +25,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'image',
         'email',
         'password',
     ];
@@ -63,9 +64,9 @@ class User extends Authenticatable
         ];
     }
 
-    public function Image_profile()
+    public function posts()
     {
-        return $this->hasOne(Image_profile::class);
+        return $this->hasMany(Post::class);
     }
 
 }
