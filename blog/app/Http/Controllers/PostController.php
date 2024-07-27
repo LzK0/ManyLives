@@ -5,18 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Image_profile;
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Post;
+use app\Models\Post;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $images
-        $posts = Post::all();
-        return view("index", [
-            "posts" => $posts
-        ]);
+        return view("index");
     }
 
     public function perfil()

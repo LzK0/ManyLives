@@ -68,8 +68,4 @@ class User extends Authenticatable
         return $this->hasOne(Image_profile::class);
     }
 
-    public function post(){
-        return $this->hasMany(Post::class);
-    }
-
 }
