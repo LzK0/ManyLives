@@ -14,6 +14,7 @@ Route::get('/', [PostController::class, 'index'])->name('index');
 Route::get('/user_posts/{id}', [PostController::class, 'user_posts'])->name('user_posts')->middleware('auth');
 
 // Testes
+Route::get('/all_posts', [PostController::class, 'all_posts'])->name('all_posts');
 Route::get('search', [PostController::class, 'search'])->name('search');
 Route::get('/teste-one', [PostController::class,'teste_one'])->name('teste-one');
 Route::get('/perfil', [PostController::class,'perfil'])->name('perfil');

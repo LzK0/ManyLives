@@ -47,9 +47,9 @@ lg:gap-4 lg:h-[65rem]" id="container-posts">
         lg:pr-40" maxlength="60" placeholder="Pesquisar título..." id="live-search">
     </article>
     <!-- Inserindo os posts--> 
-    <div id="show"></div>
+    <div id="show" class="w-full h-[50rem] flex flex-wrap justify-center gap-5"></div>
 
-    @foreach ($posts as $post)
+    <!-- @foreach ($posts as $post)
     <article class="w-full h-1/6  border border-zinc-400
     md:w-2/5 md:h-[25rem] 
     lg:w-[30%] lg:p-1
@@ -80,7 +80,7 @@ lg:gap-4 lg:h-[65rem]" id="container-posts">
         </div>
     </article>
 
-    @endforeach
+    @endforeach -->
     <!-- Paginação--> 
     <div class="w-full h-5 p-9 flex justify-end">
         <p>{{$posts->links()}}</p>
@@ -139,6 +139,15 @@ xl:px-60">
             alert(id)
             $.ajax({
 
+            });
+        });
+        window.addEventListener('load', function () {
+            $.ajax({
+                type: 'get',
+                url: 'all_posts',
+                success: function(data) {
+                    $('#show').html(data);
+                }
             });
         });
     });
