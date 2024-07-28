@@ -21,6 +21,12 @@ class PostController extends Controller
         );
     }
 
+    public function user_posts($id)
+    {
+        $posts = Post::where("user_id", $id)->paginate(6);
+        return view("blog.user_posts", ["posts" => $posts]);
+    }
+
     public function search(Request $request)
     {
         $search = $request->search;

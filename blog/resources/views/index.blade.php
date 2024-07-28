@@ -12,6 +12,13 @@ Home
 use App\Models\User;
 @endphp
 
+@section('user_image')
+@if(Auth::user()){
+    images/{{Auth::user()->image}}
+}
+@endif
+@endsection
+
 @section('content')
 
 <section class="w-full h-5/6 flex items-center justify-center" id="atck">

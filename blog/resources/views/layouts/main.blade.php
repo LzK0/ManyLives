@@ -21,7 +21,7 @@ use App\Models\User;
         flex flex-col">
         @auth
             <div class=" w-20 h-20 rounded-full flex justify-center items-center p-2">
-                <img src="images/{{Auth::user()->image}}" alt="" class="w-[rem3] h-full rounded-full">
+                <img src="@yield('user_image')" alt="" class="w-[rem3] h-full rounded-full">
             </div>
             <div>
                 <p id="user-name" class="hidden  transition-all ease-linear duration-500">{{Auth::user()->name}}</p>
@@ -41,7 +41,9 @@ use App\Models\User;
                 <li><a href="{{route('index')}}" class="gap-2 overflow-hidden flex items-center  text-lg py-3 rounded-lg transition-all duration-300 ease-linear active bg-purple-600 hover:bg-purple-500 "><i class="px-5 ml-0.5 fa-solid fa-house"></i>Home</a></li>
                 <li><a href="{{route('teste-one')}}" class="gap-2 overflow-hidden hover:bg-gray-300 flex items-center  text-lg py-3 rounded-lg  transition-all duration-300 ease-linear"><i class="px-5 ml-0.5 fa-solid fa-chart-line"></i>Dashboard</a></li>
                 <li><a href="{{route('perfil')}}" class="gap-2 overflow-hidden hover:bg-gray-300 flex items-center  text-lg py-3 rounded-lg  transition-all duration-300 ease-linear"><i class="px-5 ml-0.5 fa-solid fa-user"></i></i>Perfil</a></li>
-                <li><a href="" class="gap-2 overflow-hidden hover:bg-gray-300 flex items-center  text-lg py-3 rounded-lg  transition-all duration-300 ease-linear"><i class="px-5 ml-0.5 fa-solid fa-address-book"></i>Meus posts</a></li>
+                @auth
+                <li><a href="user_posts/{{Auth::user()->id}}" class="gap-2 overflow-hidden hover:bg-gray-300 flex items-center  text-lg py-3 rounded-lg  transition-all duration-300 ease-linear"><i class="px-5 ml-0.5 fa-solid fa-address-book"></i>Meus posts</a></li>
+                @endauth
                 @guest
                 <li><a href="{{route('login')}}" class="gap-2 overflow-hidden hover:bg-gray-300 flex items-center  text-lg py-3 rounded-lg  transition-all duration-300 ease-linear"><i class="px-5 ml-0.5 fa-solid fa-arrow-right-to-bracket"></i>Login</a></li>
                 <li><a href="{{route('register')}}" class="gap-2 overflow-hidden hover:bg-gray-300 flex items-center  text-lg py-3 rounded-lg  transition-all duration-300 ease-linear"><i class="px-5 ml-0.5 fa-regular fa-share-from-square"></i>Cadastro</a></li>
