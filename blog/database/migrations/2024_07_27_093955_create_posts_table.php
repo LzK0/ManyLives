@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('content');
             $table->dateTime('published_at');
             $table->integer('like');
-            $table->string('image_post')->nullable();
+            $table->string('image_post')->default('error');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });

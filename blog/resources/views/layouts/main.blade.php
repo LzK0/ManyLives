@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 @php
-    use App\Models\User;
+use App\Models\User;
 @endphp
 
 <head>
@@ -17,17 +17,24 @@
 <body class=" w-screen h-screen flex font-thin overflow-x-hidden">
 
     <nav id="sidebar" class="w-20 h-full bg-zinc-200 transition-all ease-linear duration-300 flex flex-col fixed z-10">
-        <div class="w-full h-1/6 flex items-center justify-center">
-            <div class="w-5/5 h-3/5 rounded-full flex flex-col justify-center items-center">
-                @auth
-                <img src="images/{{User::find(Auth::user()->id)->image}}" alt="" class="w-full h-full rounded-full">
-                <p id="user-name" class="hidden  transition-all ease-linear duration-500">{{Auth::user()->name}}</p>
-                @endauth
-                @guest
-                <img src="images/fixed/useroff.png" alt="" class="w-full h-full rounded-full">
-                <p id="user-name" class="hidden  transition-all ease-linear duration-500">Guest</p>
-                @endguest
+        <div class="w-full h-1/6 items-center justify-center
+        flex flex-col">
+        @auth
+            <div class=" w-20 h-20 rounded-full flex justify-center items-center p-2">
+                <img src="images/{{Auth::user()->image}}" alt="" class="w-[rem3] h-full rounded-full">
             </div>
+            <div>
+                <p id="user-name" class="hidden  transition-all ease-linear duration-500">{{Auth::user()->name}}</p>
+            </div>
+            @endauth
+            @guest
+            <div class=" w-20 h-20 rounded-full flex justify-center items-center p-2">
+            <img src="images/fixed/useroff.png" alt="" class="w-full h-full rounded-full">
+            </div>
+            <div>
+                <p id="user-name" class="hidden  transition-all ease-linear duration-500">Guest</p>
+            </div>
+            @endguest
         </div>
         <div class="w-full h-4/6">
             <ul class="whitespace-nowrap overflow-ellipsis  h-full flex flex-col gap-2 p-2">
@@ -44,8 +51,8 @@
         <div class="w-full h-1/6 whitespace-nowrap overflow-ellipsis flex flex-col gap-2 p-2">
             @auth
             <form action="{{route('logout')}}" method="post">
-            @csrf
-            <a href="" class="gap-2 overflow-hidden flex items-center  text-lg py-3 rounded-lg  transition-all duration-300 ease-linear hover:bg-gray-300" onclick="event.preventDefault(); this.closest('form').submit();"><i class="fa-solid fa-arrow-right-from-bracket px-5 ml-0.5"></i> logout</a>
+                @csrf
+                <a href="" class="gap-2 overflow-hidden flex items-center  text-lg py-3 rounded-lg  transition-all duration-300 ease-linear hover:bg-gray-300" onclick="event.preventDefault(); this.closest('form').submit();"><i class="fa-solid fa-arrow-right-from-bracket px-5 ml-0.5"></i> logout</a>
             </form>
             @endauth
         </div>

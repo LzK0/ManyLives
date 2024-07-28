@@ -17,6 +17,5 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function (){
-    $posts = Post::all();
-    return view('index', ['posts'=> $posts]);
+    return redirect('index');
 })->name('dash');
