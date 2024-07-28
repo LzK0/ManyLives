@@ -24,22 +24,13 @@ class PostSeeder extends Seeder
             "user_id" => 22
         ]);
         Post::create([
-            "title" => "My second Post",
+            "title" => "My First Post",
             "description" => "This is my first post.",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "published_at" => "2021-01-01",
-            "like" => 0,
-            "image_post" => "nenhuma",
-            "user_id" => 23
-        ]);
-        Post::create([
-            "title" => "My sla Post",
-            "description" => "This is my first post.",
-            "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "published_at" => "2024-01-01",
+            "published_at" => "2022-01-01",
             "like" => 1,
             "image_post" => "nenhuma",
-            "user_id" => 21       
+            "user_id" => 22
         ]);
         Post::create([
             "title" => "My First Post",
@@ -48,25 +39,62 @@ class PostSeeder extends Seeder
             "published_at" => "2022-01-01",
             "like" => 1,
             "image_post" => "nenhuma",
-            "user_id" => 21
+            "user_id" => 22
         ]);
         Post::create([
-            "title" => "My sla Post",
+            "title" => "My First Post",
             "description" => "This is my first post.",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "published_at" => "2024-01-01",
+            "published_at" => "2022-01-01",
             "like" => 1,
-            "image_post" => "nenhuma",
-            "user_id" => 23
-        ]);
-        Post::create([
-            "title" => "My second Post",
-            "description" => "This is my first post.",
-            "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "published_at" => "2021-01-01",
-            "like" => 0,
             "image_post" => "nenhuma",
             "user_id" => 22
         ]);
+        Post::create([
+            "title" => "My First Post",
+            "description" => "This is my first post.",
+            "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "published_at" => "2022-01-01",
+            "like" => 1,
+            "image_post" => "nenhuma",
+            "user_id" => 22
+        ]);
+        Post::create([
+            "title" => "My First Post",
+            "description" => "This is my first post.",
+            "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "published_at" => "2022-01-01",
+            "like" => 1,
+            "image_post" => "nenhuma",
+            "user_id" => 22
+        ]);
+        Post::create([
+            "title" => "My First Post",
+            "description" => "This is my first post.",
+            "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "published_at" => "2022-01-01",
+            "like" => 1,
+            "image_post" => "nenhuma",
+            "user_id" => 22
+        ]);
+        Post::create([
+            "title" => "My First Post",
+            "description" => "This is my first post.",
+            "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "published_at" => "2022-01-01",
+            "like" => 1,
+            "image_post" => "nenhuma",
+            "user_id" => 22
+        ]);
+        Post::create([
+            "title" => "My First Post",
+            "description" => "This is my first post.",
+            "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "published_at" => "2022-01-01",
+            "like" => 1,
+            "image_post" => "nenhuma",
+            "user_id" => 22
+        ]);
+    
     }
 }

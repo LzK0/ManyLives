@@ -23,8 +23,8 @@ use App\Models\User;
 </section>
 <section class="w-full bg-white flex flex-col items-center p-3 gap-3 h-[180.5rem]
 sm:px-20
-md:flex-wrap md:flex-row md:justify-center md:p-3 md:gap-8 md:h-[87rem]
-lg:gap-4 lg:h-[60rem]" id="container-posts">
+md:flex-wrap md:flex-row md:justify-center md:p-3 md:gap-8 md:h-[95rem]
+lg:gap-4 lg:h-[65rem]" id="container-posts">
     <article class="w-full h-16 flex items-center justify-start p-3
     md:pl-16
     xl:pl-32">
@@ -51,7 +51,7 @@ lg:gap-4 lg:h-[60rem]" id="container-posts">
                     <p>
                         {{User::find($post->user_id)->name}}
                     </p>
-                    <p>{{date('d/m/Y', strtotime($post->publicado))}}</p>
+                    <p>{{date('d/m/Y', strtotime($post->published_at))}}</p>
                 </div>
             </div>
             <div class="w-full h-2/3 flex items-center border-b border-b-zinc-400">
@@ -67,6 +67,10 @@ lg:gap-4 lg:h-[60rem]" id="container-posts">
     </article>
 
     @endforeach
+
+    <div class="w-full h-5 p-9 flex justify-end">
+        <p>{{$posts->links()}}</p>
+    </div>
 
 </section>
 <section class="h-[20rem] w-full bg-zinc-800 text-white p-5
