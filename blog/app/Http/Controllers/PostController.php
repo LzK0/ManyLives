@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+//Importações
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
@@ -10,7 +11,7 @@ use Illuminate\Pagination\Paginator;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index() //Função para mostrar a view index com paginação
     {
         $posts = Post::paginate(6);
         return view(
@@ -21,7 +22,7 @@ class PostController extends Controller
         );
     }
 
-    public function user_posts($id)
+    public function user_posts($id) //Função para mostrar pegar os posts de um usuario
     {
         $posts = Post::where("user_id", $id)->paginate(6);
         return view("blog.user_posts", ["posts" => $posts]);

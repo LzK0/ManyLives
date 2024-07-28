@@ -1,25 +1,32 @@
-@extends('layouts.main')
+@extends('layouts.main') <!-- Pegando o layout do Main-->
 
+<!--Inserindo o título da página-->
 @section('title')
 Home
 @endsection
 
+<!--Inserindo o CSS da página-->
 @section('css')
 {{asset('css/style_index.css')}}
 @endsection
 
+<!-- Importando a model User-->
 @php
 use App\Models\User;
 @endphp
 
+<!-- Envio da rota da imagem do usuário-->
 @section('user_image')
 @auth
 images/{{Auth::user()->image}}
 @endauth
 @endsection
 
+
+<!-- Conteúdo principal -->
 @section('content')
 
+<!-- Titulo da página com parallax-->
 <section class="w-full h-5/6 flex items-center justify-center" id="atck">
     <div class="w-4/5 h-2/5 bg-white flex flex-col items-center justify-center gap-2  md:w-4/6">
         <h1 class="font-mono text-5xl sm:text-6xl md:text-7xl text-slate-700"><b class="text-purple-600">M</b>any<b class="text-purple-600">L</b>ives
@@ -31,6 +38,7 @@ images/{{Auth::user()->image}}
 sm:px-20
 md:flex-wrap md:flex-row md:justify-center md:p-3 md:gap-8 md:h-[95rem]
 lg:gap-4 lg:h-[65rem]" id="container-posts">
+    <!-- Search-->
     <article class="w-full h-16 flex items-center justify-start p-3
     md:pl-16
     xl:pl-32">
@@ -38,7 +46,7 @@ lg:gap-4 lg:h-[65rem]" id="container-posts">
         md:pr-20
         lg:pr-40" maxlength="60" placeholder="Pesquisar título..." id="live-search">
     </article>
-
+    <!-- Inserindo os posts--> 
     <div id="show"></div>
 
     @foreach ($posts as $post)
@@ -73,11 +81,12 @@ lg:gap-4 lg:h-[65rem]" id="container-posts">
     </article>
 
     @endforeach
-
+    <!-- Paginação--> 
     <div class="w-full h-5 p-9 flex justify-end">
         <p>{{$posts->links()}}</p>
     </div>
 
+    <!-- Adicionando o autor e as teclogias utulizadas--> 
 </section>
 <section class="h-[20rem] w-full bg-zinc-800 text-white p-5
     md:h-2/5 

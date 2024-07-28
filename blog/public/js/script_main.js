@@ -1,3 +1,4 @@
+// Efeito da sidebar
 var sidebar = document.getElementById("sidebar");
 var name_show = document.getElementById("user-name"); 
 var btn_toggle = document.getElementById("sidebar-toggle").addEventListener("click", function () {

@@ -1,3 +1,4 @@
+/* Parallax */
 #atck{
     background-image: url('/blog/public/images/fixed/manylives.webp');
     background-position: center;
@@ -6,7 +7,7 @@
     background-attachment: fixed;
     opacity: 70%;
 }
-
+/* Foto nos posts */
 .cards-post{
     background-image: url(../images/perfilGato.jpg);
     background-repeat: no-repeat;

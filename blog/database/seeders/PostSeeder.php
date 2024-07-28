@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+// Importações
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use app\Models\User;

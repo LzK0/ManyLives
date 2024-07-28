@@ -1,12 +1,16 @@
+/* definindo medidas */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Mudando a fonte de tudo */
 body {
     background-color: blue;
     font-family: "Mulish", sans-serif;
 }
 
-.ah{
-    background-color: aqua;
-}
-
+/* Mudando a sidebar */
 #sidebar.sidebar-move {
     width: 200px;
 }
@@ -16,6 +20,7 @@ body {
     transform: rotate(180deg);
 }
 
-#user-name.show-name{
+/* Mostrando o nome quando a sidebar estiver aberta */
+#user-name.show-name {
     display: block;
 }
