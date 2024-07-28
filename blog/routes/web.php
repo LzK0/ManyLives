@@ -6,7 +6,7 @@ use App\Models\Post;
 
 Route::get('/', [PostController::class, 'index'])->name('index');
 
-Route::get('user_posts/{id}', [PostController::class, 'user_posts'])->name('user_posts')->middleware('auth');
+Route::get('/user_posts/{id}', [PostController::class, 'user_posts'])->name('user_posts')->middleware('auth');
 
 Route::get('search', [PostController::class, 'search'])->name('search');
 

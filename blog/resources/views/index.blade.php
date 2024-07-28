@@ -13,10 +13,9 @@ use App\Models\User;
 @endphp
 
 @section('user_image')
-@if(Auth::user()){
-    images/{{Auth::user()->image}}
-}
-@endif
+@auth
+images/{{Auth::user()->image}}
+@endauth
 @endsection
 
 @section('content')
