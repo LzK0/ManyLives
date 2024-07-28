@@ -23,7 +23,7 @@ lg:gap-4 lg:h-full" id="container-posts">
         <section class="w-full bg-white flex flex-col items-center p-5 gap-3 h-[180.5rem]
 sm:px-20
 md:flex-wrap md:flex-row md:justify-center md:p-3 md:gap-8 md:h-[95rem]
-lg:gap-4 lg:h-[65rem]" id="container-posts">
+lg:gap-4 lg:h-[74rem]" id="container-posts">
             @endif
             <article class="w-full h-16 flex items-center justify-start p-3
     md:pl-16
@@ -43,7 +43,7 @@ lg:gap-4 lg:h-[65rem]" id="container-posts">
             <article class="w-full h-1/6  border border-zinc-400
     md:w-2/5 md:h-[25rem] 
     lg:w-[30%] lg:p-1
-    xl:w-[24%]">
+    xl:w-[25%] xl:h-[30rem]">
                 <div class="cards-post w-full h-1/2">
                     <img src="../images/perfilGato.jpg" alt="" class="w-full h-full">
                 </div>

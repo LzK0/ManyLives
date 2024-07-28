@@ -16,85 +16,130 @@ class PostSeeder extends Seeder
     public function run(): void
     {
         Post::create([
-            "title" => "My First Post",
-            "description" => "This is my first post.",
+            "title" => "vish",
+            "description" => "f",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "published_at" => "2022-01-01",
+            "published_at" => now(),
             "like" => 1,
             "image_post" => "nenhuma",
-            "user_id" => 22
+            "user_id" => 21
         ]);
         Post::create([
-            "title" => "My First Post",
-            "description" => "This is my first post.",
+            "title" => "vish",
+            "description" => "f",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "published_at" => "2022-01-01",
+            "published_at" => now(),
             "like" => 1,
             "image_post" => "nenhuma",
-            "user_id" => 22
+            "user_id" => 21
         ]);
         Post::create([
-            "title" => "My First Post",
-            "description" => "This is my first post.",
+            "title" => "vish",
+            "description" => "f",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "published_at" => "2022-01-01",
+            "published_at" => now(),
             "like" => 1,
             "image_post" => "nenhuma",
-            "user_id" => 22
+            "user_id" => 21
         ]);
         Post::create([
-            "title" => "My First Post",
-            "description" => "This is my first post.",
+            "title" => "vish",
+            "description" => "f",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "published_at" => "2022-01-01",
+            "published_at" => now(),
             "like" => 1,
             "image_post" => "nenhuma",
-            "user_id" => 22
+            "user_id" => 21
         ]);
         Post::create([
-            "title" => "My First Post",
-            "description" => "This is my first post.",
+            "title" => "vish",
+            "description" => "f",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "published_at" => "2022-01-01",
+            "published_at" => now(),
             "like" => 1,
             "image_post" => "nenhuma",
-            "user_id" => 22
+            "user_id" => 21
         ]);
         Post::create([
-            "title" => "My First Post",
-            "description" => "This is my first post.",
+            "title" => "vish",
+            "description" => "f",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "published_at" => "2022-01-01",
+            "published_at" => now(),
             "like" => 1,
             "image_post" => "nenhuma",
-            "user_id" => 22
+            "user_id" => 21
         ]);
         Post::create([
-            "title" => "My First Post",
-            "description" => "This is my first post.",
+            "title" => "vish",
+            "description" => "f",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "published_at" => "2022-01-01",
+            "published_at" => now(),
             "like" => 1,
             "image_post" => "nenhuma",
-            "user_id" => 22
+            "user_id" => 21
         ]);
         Post::create([
-            "title" => "My First Post",
-            "description" => "This is my first post.",
+            "title" => "vish",
+            "description" => "f",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "published_at" => "2022-01-01",
+            "published_at" => now(),
             "like" => 1,
             "image_post" => "nenhuma",
-            "user_id" => 22
+            "user_id" => 21
         ]);
         Post::create([
-            "title" => "My First Post",
-            "description" => "This is my first post.",
+            "title" => "vish",
+            "description" => "f",
             "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "published_at" => "2022-01-01",
+            "published_at" => now(),
             "like" => 1,
             "image_post" => "nenhuma",
-            "user_id" => 22
+            "user_id" => 21
+        ]);
+        Post::create([
+            "title" => "vish",
+            "description" => "f",
+            "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "published_at" => now(),
+            "like" => 1,
+            "image_post" => "nenhuma",
+            "user_id" => 21
+        ]);
+        Post::create([
+            "title" => "vish",
+            "description" => "f",
+            "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "published_at" => now(),
+            "like" => 1,
+            "image_post" => "nenhuma",
+            "user_id" => 21
+        ]);
+        Post::create([
+            "title" => "vish",
+            "description" => "f",
+            "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "published_at" => now(),
+            "like" => 1,
+            "image_post" => "nenhuma",
+            "user_id" => 21
+        ]);
+        Post::create([
+            "title" => "vish",
+            "description" => "f",
+            "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "published_at" => now(),
+            "like" => 1,
+            "image_post" => "nenhuma",
+            "user_id" => 21
+        ]);
+        Post::create([
+            "title" => "vish",
+            "description" => "f",
+            "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "published_at" => now(),
+            "like" => 1,
+            "image_post" => "nenhuma",
+            "user_id" => 21
         ]);
     
     }

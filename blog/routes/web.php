@@ -12,12 +12,12 @@ Route::get('/', [PostController::class, 'index'])->name('index');
 
 // Outras rotas do site
 Route::get('/user_posts/{id}', [PostController::class, 'user_posts'])->name('user_posts')->middleware('auth');
+Route::get('/perfil', [PostController::class,'perfil'])->name('perfil');
 
 // Testes
 Route::get('/all_posts', [PostController::class, 'all_posts'])->name('all_posts');
 Route::get('search', [PostController::class, 'search'])->name('search');
 Route::get('/teste-one', [PostController::class,'teste_one'])->name('teste-one');
-Route::get('/perfil', [PostController::class,'perfil'])->name('perfil');
 Route::post('/upload/{id}', [PostController::class,'upload'])->name('upload');
 
 // Rota para o middleware
