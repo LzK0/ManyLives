@@ -35,8 +35,8 @@ images/{{Auth::user()->image}}
     </div>
 </section>
 <section class="w-full bg-white flex flex-col items-center p-3 gap-3 h-[180.5rem]
-sm:px-20
-md:flex-wrap md:flex-row md:justify-center md:p-3 md:gap-8 md:h-[95rem]
+sm:px-10
+md:flex-wrap md:flex-row md:justify-center md:p-3 md:h-[95rem]
 lg:gap-4 lg:h-[65rem]" id="container-posts">
     <!-- Search-->
     <article class="w-full h-16 flex items-center justify-start p-3
@@ -47,7 +47,8 @@ lg:gap-4 lg:h-[65rem]" id="container-posts">
         lg:pr-40" maxlength="60" placeholder="Pesquisar título..." id="live-search">
     </article>
     <!-- Inserindo os posts--> 
-    <div id="show" class="w-full h-[50rem] flex flex-wrap justify-center gap-5"></div>
+    <div id="show" class="w-full flex flex-wrap justify-center gap-5 h-[93%]
+    lg:h-[50rem] "></div>
 
     <!-- @foreach ($posts as $post)
     <article class="w-full h-1/6  border border-zinc-400
@@ -82,14 +83,15 @@ lg:gap-4 lg:h-[65rem]" id="container-posts">
 
     @endforeach -->
     <!-- Paginação--> 
-    <div class="w-full h-5 p-9 flex justify-end">
+    <div class="w-full h-[7%] p-9 flex justify-end items-end
+    sm:h-[9%] md:h-[0%] sm:p-1 lg:h-[4rem]">
         <p>{{$posts->links()}}</p>
     </div>
 
     <!-- Adicionando o autor e as teclogias utulizadas--> 
 </section>
 <section class="h-[20rem] w-full bg-zinc-800 text-white p-5
-    md:h-2/5 
+    md:h-2/5
 lg:px-20
 xl:px-60">
     <div class="w-full h-1/2 flex items-center justify-center flex-col gap-20">
