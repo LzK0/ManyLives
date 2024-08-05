@@ -46,49 +46,50 @@ lg:gap-4 lg:h-[65rem]" id="container-posts">
         md:pr-20
         lg:pr-40" maxlength="60" placeholder="Pesquisar título..." id="live-search">
     </article>
-    <!-- Inserindo os posts--> 
-    <div id="show" class="w-full flex flex-wrap justify-center gap-5 h-[93%]
-    lg:h-[50rem] "></div>
+    <!-- Inserindo os posts-->
+    <div id="show" class="w-full flex flex-wrap justify-center gap-5 h-[88%]
+    lg:h-[50rem] ">
 
-    <!-- @foreach ($posts as $post)
-    <article class="w-full h-1/6  border border-zinc-400
+        @foreach ($posts as $post)
+        <article class="w-full h-1/6  border border-zinc-400
     md:w-2/5 md:h-[25rem] 
     lg:w-[30%] lg:p-1
     xl:w-[27%]">
-        <div class="cards-post w-full h-1/2 bg-[url('{{asset('images/perfilGato.jpg')}}')]">
-        </div>
-        <div class="cards w-full h-1/2  flex flex-col p-4">
-            <div class="w-full h-1/3 flex items-center gap-2">
-                <div class="w-12 h-[3rem] rounded-full bg-zinc-900">
-                    <img src="Images/{{User::find($post->user_id)->image}}" alt="" class="w-full h-full rounded-full">
+            <div class="cards-post w-full h-1/2 bg-[url('{{asset('images/perfilGato.jpg')}}')]">
+            </div>
+            <div class="cards w-full h-1/2  flex flex-col p-4">
+                <div class="w-full h-1/3 flex items-center gap-2">
+                    <div class="w-12 h-[3rem] rounded-full bg-zinc-900">
+                        <img src="Images/{{User::find($post->user_id)->image}}" alt="" class="w-full h-full rounded-full">
+                    </div>
+                    <div class="w-2/3 h-6/6">
+                        <p>
+                            {{User::find($post->user_id)->name}}
+                        </p>
+                        <p>{{date('d/m/Y', strtotime($post->published_at))}}</p>
+                    </div>
                 </div>
-                <div class="w-2/3 h-6/6">
-                    <p>
-                        {{User::find($post->user_id)->name}}
-                    </p>
-                    <p>{{date('d/m/Y', strtotime($post->published_at))}}</p>
+                <div class="w-full h-2/3 flex items-center border-b border-b-zinc-400">
+                    <a href="" class="text-lg font-bold hover:text-purple-600">{{$post->title}}</a>
+                </div>
+                <div class="w-full h-1/3 flex items-center justify-end pr-6">
+                    <div class="w-11 h-11  flex items-center justify-center gap-1"><i class="effect-likes fa-regular fa-heart text-red-500 cursor-pointer"></i>
+                        <p class="likes">2</p>
+                    </div>
+                    <input type="hidden" value="{{$post->user_id}}" class="val-likes">
                 </div>
             </div>
-            <div class="w-full h-2/3 flex items-center border-b border-b-zinc-400">
-                <a href="" class="text-lg font-bold hover:text-purple-600">{{$post->title}}</a>
-            </div>
-            <div class="w-full h-1/3 flex items-center justify-end pr-6">
-                <div class="w-11 h-11  flex items-center justify-center gap-1"><i class="effect-likes fa-regular fa-heart text-red-500 cursor-pointer"></i>
-                    <p class="likes">2</p>
-                </div>
-                <input type="hidden" value="{{$post->user_id}}" class="val-likes">
-            </div>
-        </div>
-    </article>
+        </article>
 
-    @endforeach -->
-    <!-- Paginação--> 
+        @endforeach
+    </div>
+    <!-- Paginação-->
     <div class="w-full h-[7%] p-9 flex justify-end items-end
     sm:h-[9%] md:h-[0%] sm:p-1 lg:h-[4rem]">
         <p>{{$posts->links()}}</p>
     </div>
 
-    <!-- Adicionando o autor e as teclogias utulizadas--> 
+    <!-- Adicionando o autor e as teclogias utulizadas-->
 </section>
 <section class="h-[20rem] w-full bg-zinc-800 text-white p-5
     md:h-2/5
@@ -143,7 +144,7 @@ xl:px-60">
 
             });
         });
-        window.addEventListener('load', function () {
+        window.addEventListener('load', function() {
             $.ajax({
                 type: 'get',
                 url: 'all_posts',
