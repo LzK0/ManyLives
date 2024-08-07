@@ -10,7 +10,7 @@ use App\Models\User;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title> <!-- Adicionando uma section de titulo. --> 
-    @extends('layouts.head_links') <!-- Importando os links do head. --> 
+    @include('layouts.head_links') <!-- Importando os links do head. --> 
     <link rel="stylesheet" type="text/css" href="@yield('css')"> <!-- Adicionando uma section para o css, se necessário--> 
     <link rel="stylesheet" type="text/css" href="{{asset('css/style_main.css')}}"> <!-- Adicionando a estilização principal da base do site --> 
 </head>
@@ -76,7 +76,7 @@ use App\Models\User;
 
 
     <script src="{{asset('js/script_main.js')}}"></script> <!-- JS do main--> 
-    @extends('layouts.footer_links') <!-- Importando os links do footer-->
+    @include('layouts.footer_links') <!-- Importando os links do footer-->
     @yield('js') <!-- Section para arquivo js, se necessário-->
 </body>
 
