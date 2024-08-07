@@ -4,9 +4,6 @@
 PerfilPessoal
 @endsection
 
-@php
-
-@endphp
 
 @section('user_image')
 images/{{Auth::user()->image}}

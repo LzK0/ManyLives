@@ -46,7 +46,7 @@ use App\Models\User;
                 <!-- Section para os links da sidebar-->
                 <li><a href="{{route('index')}}" class="gap-2 overflow-hidden flex items-center  text-lg py-3 rounded-lg transition-all duration-300 ease-linear active bg-purple-600 hover:bg-purple-500 "><i class="px-5 ml-0.5 fa-solid fa-house"></i>Home</a></li>
                 @auth
-                <li><a href="{{route('teste-one')}}" class="gap-2 overflow-hidden hover:bg-gray-300 flex items-center  text-lg py-3 rounded-lg  transition-all duration-300 ease-linear"><i class="px-5 ml-0.5 fa-solid fa-chart-line"></i>Dashboard</a></li>
+                <li><a href="{{route('dashboard')}}" class="gap-2 overflow-hidden hover:bg-gray-300 flex items-center  text-lg py-3 rounded-lg  transition-all duration-300 ease-linear"><i class="px-5 ml-0.5 fa-solid fa-chart-line"></i>Dashboard</a></li>
                 <li><a href="{{route('perfil')}}" class="gap-2 overflow-hidden hover:bg-gray-300 flex items-center  text-lg py-3 rounded-lg  transition-all duration-300 ease-linear"><i class="px-5 ml-0.5 fa-solid fa-user"></i></i>Perfil</a></li>
                 @endauth
                 @auth
@@ -67,7 +67,7 @@ use App\Models\User;
             </form>
             @endauth
         </div>
-        <button class="absolute top-20 -right-3  text-sm bg-purple-600 hover:bg-purple-500 rounded-full px-1 py-1 transition-all ease-linear duration-300" id="sidebar-toggle"><i class="fa-solid fa-arrow-right"></i></button>
+        <button class="absolute top-20 -right-3  text-sm bg-purple-600 hover:bg-purple-500 rounded-full px-2 py-1 transition-all ease-linear duration-300" id="sidebar-toggle"><i class="fa-solid fa-arrow-right"></i></button>
     </nav>
 
     <main class="h-full w-full ml-20 bg-zinc-700">

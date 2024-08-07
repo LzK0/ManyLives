@@ -14,6 +14,7 @@ Route::get('/', [PostController::class, 'index'])->name('index');
 Route::get('/user_posts/{id}', [PostController::class, 'user_posts'])->name('user_posts')->middleware('auth');
 Route::get('/perfil', [PostController::class,'perfil'])->name('perfil');
 Route::post('/atualizar_perfil', [PostController::class,'atualizar_perfil'])->name('atualizar_perfil');
+Route::get('/dashboard', [PostController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
 // Testes
 Route::get('/all_posts', [PostController::class, 'all_posts'])->name('all_posts');

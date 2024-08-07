@@ -73,6 +73,11 @@ class PostController extends Controller
             }
     }
 
+    public function dashboard(){
+        $posts = Post::paginate(6);
+        return view('blog.dashboard', ['posts' => $posts]);
+    }
+
     public function perfil()
     {
         return view("blog.perfil");
