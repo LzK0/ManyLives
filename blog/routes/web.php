@@ -18,7 +18,7 @@ Route::get('/dashboard', [PostController::class, 'dashboard'])->name('dashboard'
 
 // Testes
 Route::get('/all_posts', [PostController::class, 'all_posts'])->name('all_posts');
-Route::get('search', [PostController::class, 'search'])->name('search');
+Route::get('/search', [PostController::class, 'search'])->name('search');
 Route::get('/teste-one', [PostController::class,'teste_one'])->name('teste-one');
 Route::post('/upload/{id}', [PostController::class,'upload'])->name('upload');
 
@@ -28,5 +28,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function (){
-    return redirect('index');
-})->name('dash');
+    return view('index');
+})->name('middle');
+
+// Route::group(['middleware' => 'auth'], function () {
+//     Route::get('/', [PostController::class, 'index'])->name('index');
+// });
