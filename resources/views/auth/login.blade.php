@@ -6,10 +6,9 @@ Login
 
 @section('content')
 
+<section class="w-full h-full flex items-center justify-center bg-gray-100 flex-col">
 
-<section class="w-full h-full flex items-center justify-center flex-col">
-
-    <x-validation-errors class="mb-8 text-white mx-auto bg-zinc-200 rounded-lg top-[40px] pt-5 h-32 text-center w-2/3 max-w-[400px]" />
+    <x-validation-errors class="mb-6 text-red-600 mx-auto bg-white rounded-lg border border-gray-300 p-4 w-4/5 max-w-md" />
 
     @session('status')
     <div class="mb-4 font-medium text-sm text-green-600">
@@ -17,42 +16,36 @@ Login
     </div>
     @endsession
 
-    <form method="POST" action="{{ route('login') }}" class="w-5/6 h-1/2 max-w-[700px] shadow-lg bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl p-5 flex justify-center items-center flex-col">
+    <form method="POST" action="{{ route('login') }}" class="w-4/5 max-w-md bg-white shadow-lg rounded-lg p-8 flex flex-col gap-6 border border-gray-300">
         @csrf
 
-        <div class="w-full flex items-center flex-col">
-            <span class="w-[80%] max-w-[500px]">
-                <x-label class="text-white" for="email" value="{{ __('Email') }}" />
-            </span>
-            <x-input id="email" class="block mt-1 w-[80%] max-w-[500px]" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+        <div class="w-full flex flex-col">
+            <x-label class="text-gray-800 mb-2" for="email" value="{{ __('Email') }}" />
+            <x-input id="email" class="block w-full border border-gray-300 rounded-md p-2 focus:border-yellow-400 focus:ring-yellow-400" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
         </div>
 
-        <div class="w-full flex items-center flex-col mt-2">
-            <span class="w-[80%] max-w-[500px]">
-                <x-label class="text-white" for="password" value="{{ __('Password') }}" />
-            </span>
-            <x-input id="password" class="block mt-1 w-[80%] max-w-[500px]" type="password" name="password" required autocomplete="current-password" />
+        <div class="w-full flex flex-col">
+            <x-label class="text-gray-800 mb-2" for="password" value="{{ __('Password') }}" />
+            <x-input id="password" class="block w-full border border-gray-300 rounded-md p-2 focus:border-yellow-400 focus:ring-yellow-400" type="password" name="password" required autocomplete="current-password" />
         </div>
 
-        <div class="w-[80%] max-w-[500px]">
-            <div class="flex items-start mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-checkbox id="remember_me" name="remember" />
-                    <span class="ms-2 text-sm text-white">{{ __('Remember me') }}</span>
-                </label>
-            </div>
+        <div class="flex items-center justify-between">
+            <label for="remember_me" class="flex items-center text-gray-800">
+                <x-checkbox id="remember_me" name="remember" />
+                <span class="ms-2 text-sm">{{ __('Remember me') }}</span>
+            </label>
 
-            <div class="flex items-start mt-4">
-                @if (Route::has('password.request'))
-                <a class="underline text-sm transition-all ease-linear duration-500 text-white hover:text-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-                @endif
-            </div>
+            @if (Route::has('password.request'))
+            <a class="text-sm text-gray-600 hover:text-gray-800 transition-all duration-300 underline" href="{{ route('password.request') }}">
+                {{ __('Forgot your password?') }}
+            </a>
+            @endif
         </div>
-        <div class="flex items-center justify-end mt-4">
-            <input type="submit" name="submit" id="submit" class="transition-all ease-linear duration-500 bg-sky-500 hover:bg-sky-600 cursor-pointer text-white font-bold py-3 px-20 rounded" value="Login">
+
+        <div class="flex justify-end">
+            <input type="submit" name="submit" id="submit" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-6 rounded transition-all duration-300 cursor-pointer" value="Login">
         </div>
     </form>
 </section>
+
 @endsection

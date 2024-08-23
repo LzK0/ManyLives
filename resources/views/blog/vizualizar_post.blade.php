@@ -13,7 +13,7 @@ use App\Models\User;
 @endsection
 
 @section('css')
-{{asset('css/style_visualizar_post.css')}}
+{{asset('css/style_vizualizar.css')}}
 @endsection
 
 @section('content')
@@ -35,8 +35,8 @@ use App\Models\User;
                 <div class="w-full h-[10%] flex">
                     <div class="w-1/3 h-full flex justify-center items-center
                 sm:justify-end">
-                        <div class="w-[5rem] h-[5rem] rounded-full
-                        sm:w-[7rem] sm:h-[7rem] sm:p-4
+                        <div class="w-[5rem] h-[5rem] rounded-full mt-5
+                        sm:w-[7rem] sm:h-[7rem] sm:p-4 sm:mt-0
                         md:w-[9rem] md:h-[9rem] md:p-6">
                             <img src="{{asset('storage/'. $user->image)}}" alt="" class="w-full h-full rounded-full">
                         </div>
@@ -52,13 +52,13 @@ use App\Models\User;
                 </div>
                 <article class="w-full h-full flex items-center flex-col gap-6 overflow-hidden p-4 ">
                     <div cass="">
-                        <h1 class="content-off p-3 text-3xl text-center text-yellow-500">{{$post->title}}</h1>
+                        <h1 class="content-off p-3 text-3xl text-center text-yellow-500 content-off">{{$post->title}}</h1>
                     </div>
                     <div class="">
-                        <p class="content-off text-xl text-center">{{$post->content}}</p>
+                        <p class="content-off text-xl text-center content-off">{{$post->content}}</p>
                     </div>
                     <div>
-                        <h2 class="content-off text-2xl text-yellow-500 text-center">Ver mais:</h2>
+                        <h2 class="content-off text-2xl text-yellow-500 text-center content-off">Ver mais:</h2>
                     </div>
                     <section class="container mx-auto p-4">
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -120,5 +120,5 @@ use App\Models\User;
 @endsection
 
 @section('js')
-{{asset('js/script_visualizar_post.js')}}
+{{asset('js/script_vizualizar.js')}}
 @endsection

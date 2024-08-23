@@ -192,6 +192,17 @@ class PostController extends Controller
         }
     }
 
+    public function search_post(Request $request)
+    {
+        $query = $request->input('query');
+        $posts = Post::where('title', 'like', '%' . $query . '%')->paginate(12);
+        return view('index', ['posts' => $posts]);
+    }
+
     public function upload(Request $request) {}
     public function teste_one() {}
 }
+
+        // Search for posts containing the query
+
+        // Return the view with the posts

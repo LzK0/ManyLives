@@ -15,6 +15,7 @@ Route::get('/adicionar_post', [PostController::class,'adicionar_post'])->name('a
 Route::post('/cadastro_post', [PostController::class,'cadastro_post'])->name('cadastro_post')->middleware('auth');
 Route::get('/dash', [PostController::class, 'dash'])->name('dash')->middleware('auth');
 Route::get('/vizualizar_post/{id}', [PostController::class, 'vizualizar_post'])->name('vizualizar_post');
+Route::get('/search', [PostController::class, 'search_post'])->name('search');
 
 // Rotas do perfil
 Route::get('/perfil', [PostController::class,'perfil'])->name('perfil')->middleware('auth');
@@ -28,7 +29,7 @@ Route::delete('/deletar_post/{id}', [PostController::class, 'deletar_post'])->na
 
 // Testes
 Route::get('/all_posts', [PostController::class, 'all_posts'])->name('all_posts');
-Route::get('/search', [PostController::class, 'search'])->name('search');
+// Route::get('/search', [PostController::class, 'search'])->name('search');
 Route::get('/teste-one', [PostController::class,'teste_one'])->name('teste-one');
 Route::post('/upload/{id}', [PostController::class,'upload'])->name('upload');
 

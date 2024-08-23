@@ -32,6 +32,9 @@ Editando Post
                 </label>
                 <input type="file" name="image_post" id="image-post" class="hidden">
             </div>
+            @error('image_post')
+            <div class="text-red-600 w-4/5 mb-4">{{ $message }}</div>
+            @enderror
             <div class="w-full h-[80%]">
                 <div class="w-full h-[10%] flex">
                     <div class="w-1/3 h-full  flex justify-center items-center
@@ -89,9 +92,7 @@ Editando Post
                     </div>
                     <div class="w-full h-[90%] flex flex-col justify-center gap-3 items-center">
 
-                        <textarea type="text" name="title" id="title" class="w-4/5 h-[8rem] rounded-md bold border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 resize-none" placeholder="Título...">
-                        {{$post->title}}
-                        </textarea>
+                        <input type="text" name="title" id="title" class="w-4/5 h-10 rounded-md bold border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 resize-none" value="{{$post->title}}" placeholder="Título...">
                         @error('title')
                         <div class="text-red-600 w-4/5 mb-4">{{ $message }}</div>
                         @enderror

@@ -25,7 +25,7 @@ class CadastraPostRequest extends FormRequest
             'title' => 'required|min:5|max:40',
             'description' => 'required|min:10|max:90',
             'content' => 'required|min:30',
-            'image_post' => 'image|mimes:jpeg,png,jpg,svg|max:2048',
+            'image_post' => 'image|mimes:jpeg,png,jpg,svg',
         ];
     }
     public function messages(): array
@@ -41,7 +41,6 @@ class CadastraPostRequest extends FormRequest
             'content.min' => 'O campo conteúdo deve ter pelo menos :min caracteres',
             'image_post.image' => 'O campo imagem deve ser uma imagem',
             'image_post.mimes' => 'O campo imagem deve ser uma imagem',
-            'image_post.max' => 'O campo imagem deve ter no maximo :max caracteres',
         ];
     }
 }

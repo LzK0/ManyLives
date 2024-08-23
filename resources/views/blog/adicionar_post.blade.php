@@ -5,114 +5,143 @@ Adicionar POST
 @endsection
 
 @section('user_image')
-{{ asset('storage/' . Auth::user()->image) }}
+{{asset('storage/'. Auth::user()->image)}}
 @endsection
 
 @section('css')
-{{ asset('css/style_adicionar_post.css') }}
+{{asset('css/style_adicionar_post.css')}}
 @endsection
 
 @section('content')
-<section class="w-full min-h-screen bg-gray-100 flex justify-center items-center py-8">
+<section class="w-full h-[190%]">
 
-    <div class="w-full max-w-4xl bg-white shadow-lg rounded-lg p-6">
-        <form action="cadastro_post" method="post" enctype="multipart/form-data">
+    <div class="w-full h-full flex justify-center">
+        <form action="{{route('cadastro_post', Auth::user()->id)}}" method="post" enctype="multipart/form-data" class="w-[80%] h-full">
             @csrf
-
-            <div class="relative w-full h-72 bg-gray-200 rounded-lg overflow-hidden mb-6">
-                <img src="" alt="Prévia da Imagem" class="w-full h-full object-cover hidden" id="image_preview">
-                <label for="image-post" class="flex items-center justify-center cursor-pointer bg-yellow-500 text-white rounded-full w-32 h-32 transition-transform transform hover:scale-105 absolute bottom-4 right-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+            <div class="h-[20%] w-full bg-zinc-600 flex items-center justify-center relative
+            md:h-[35%]
+            xl:h-[40%]">
+                <img src="" alt="" class="w-full h-full hidden" id="image_preview">
+                <label for="image-post" class="w-[140px] h-[140px] flex items-center justify-center cursor-pointer bg-zinc-700 opacity-70 text-white rounded-full border-2 border-yellow-400 transition-all ease-linear duration-300 hover:bg-zinc-800 absolute">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
                         <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
                     </svg>
                 </label>
                 <input type="file" name="image_post" id="image-post" class="hidden">
             </div>
-
             @error('image_post')
-            <div class="text-red-600 text-center mb-4">
-                {{ $message }}
+            <div class="w-full h-[3%] text-center">
+                <div class="text-red-600 w-full mb-3">{{ $message }}</div>
             </div>
             @enderror
+            <div class="w-full h-[80%]">
+                <div class="w-full h-[10%] flex">
+                    <div class="w-1/3 h-full  flex justify-center items-center
+                sm:justify-end">
+                        <div class="w-[5rem] h-[5rem] rounded-full
+                        sm:w-[7rem] sm:h-[7rem] sm:p-4
+                        md:w-[9rem] md:h-[9rem] md:p-6">
+                            <img src="{{asset('storage/'. Auth::user()->image)}}" alt="" class="w-full h-full rounded-full border-2 border-yellow-400">
+                        </div>
+                    </div>
+                    <div class="w-2/3 h-full ">
+                        <div class="w-full h-1/2 flex items-end">
+                            <h4 class="text-xl">Autor: {{Auth::user()->name}}</h4>
 
-            <div class="flex items-center mb-6">
-                <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
-                    <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="Imagem do Autor" class="w-full h-full object-cover">
+                            <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                        </div>
+                        <div class="w-full h-1/2 flex items-baseline">
+                            <p>Será publicado: {{date("d/m/Y", strtotime(now())) }}</p>
+
+                            <input type="hidden" name="published_at" id="" value="{{now()}}">
+
+                            <input type="hidden" name="like" value="0">
+
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="text-xl font-semibold">Autor: {{ Auth::user()->name }}</h4>
-                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <p class="text-gray-600">Será publicado: {{ date('d/m/Y', strtotime(now())) }}</p>
-                    <input type="hidden" name="published_at" value="{{ now() }}">
-                    <input type="hidden" name="like" value="0">
+                @if(!Auth::user()->instagram && !Auth::user()->facebook && !Auth::user()->twitter || Auth::user()->links == 0)
+                <div class="w-full h-[10%] items-center justify-evenly hidden">
+                    @else
+                    <div class="w-full h-[20%] flex items-center justify-center gap-2 flex-col
+                    md:h-[10%] md:flex-row">
+                        @if (Auth::user()->instagram)
+                        <a href="">
+                            <button class="insta-btn border-2 border-yellow-400">
+                                <i class="fa-brands fa-instagram"></i>
+                            </button>
+                        </a>
+                        @endif
+
+                        @if (Auth::user()->facebook)
+                        <a href="">
+                            <button class="fb-btn border-2 border-yellow-400"> <i class="fa-brands fa-facebook"></i>
+                            </button>
+                        </a>
+                        @endif
+
+                        @if(Auth::user()->twitter)
+                        <a href="">
+                            <button class="x-btn border-2 border-yellow-400">
+                                <i class="fa-solid fa-x"></i>
+                            </button>
+                        </a>
+                        @endif
+                        @endif
+                    </div>
+                    <div class="w-full h-[90%] flex flex-col justify-center gap-3 items-center">
+
+                        <input type="text" name="title" id="title" placeholder="Título..." class="w-4/5 h-10 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500">
+                        @error('title')
+                        <div class="text-red-600 w-4/5 mb-4">{{ $message }}</div>
+                        @enderror
+
+                        <textarea name="description" id="description" placeholder="Descrição..." class="w-4/5 h-[12rem] border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 resize-none" value="{{old('description')}}">
+                        Descrição...    
+                    </textarea>
+                        @error('description')
+                        <div class="text-red-600 w-4/5 mb-4">{{ $message }}</div>
+                        @enderror
+
+                        <textarea name="content" id="content" placeholder="Conteúdo..." class="w-4/5 h-[28rem] border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 resize-none">
+                        Conteúdo...    
+                    </textarea>
+                        @error('content')
+                        <div class="text-red-600 w-4/5 mb-7">{{ $message }}</div>
+                        @enderror
+
+                        <div class="flex flex-col gap-5 p-2
+                    md:flex-row">
+                            <button class="submit border-2 border-yellow-400" type="submit">
+                                <span class="submit-content">Enviar </span>
+                            </button>
+                            <button type="reset" class="atualizar border-2 border-yellow-400">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="currentColor"
+                                    class="bi bi-arrow-repeat"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"></path>
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"></path>
+                                </svg>
+                                Resetar
+                            </button>
+
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-
-            @if (!Auth::user()->instagram && !Auth::user()->facebook && !Auth::user()->twitter || Auth::user()->links == 0)
-            <div class="hidden">
-            @else
-            <div class="flex gap-4 mb-6">
-                @if (Auth::user()->instagram)
-                <a href="" class="text-yellow-500 hover:text-yellow-600">
-                    <button class="bg-yellow-300 text-yellow-800 p-2 rounded-full transition-transform transform hover:scale-110">
-                        <i class="fa-brands fa-instagram"></i>
-                    </button>
-                </a>
-                @endif
-
-                @if (Auth::user()->facebook)
-                <a href="" class="text-yellow-500 hover:text-yellow-600">
-                    <button class="bg-yellow-300 text-yellow-800 p-2 rounded-full transition-transform transform hover:scale-110">
-                        <i class="fa-brands fa-facebook"></i>
-                    </button>
-                </a>
-                @endif
-
-                @if (Auth::user()->twitter)
-                <a href="" class="text-yellow-500 hover:text-yellow-600">
-                    <button class="bg-yellow-300 text-yellow-800 p-2 rounded-full transition-transform transform hover:scale-110">
-                        <i class="fa-brands fa-twitter"></i>
-                    </button>
-                </a>
-                @endif
-            </div>
-            @endif
-
-            <div class="flex flex-col gap-4">
-                <textarea name="title" id="title" class="w-full h-32 border border-yellow-300 rounded-md p-3 placeholder-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 resize-none" placeholder="Título..."></textarea>
-                @error('title')
-                <div class="text-red-600 mb-4">{{ $message }}</div>
-                @enderror
-
-                <textarea name="description" id="description" class="w-full h-40 border border-yellow-300 rounded-md p-3 placeholder-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 resize-none" placeholder="Descrição...">{{ old('description') }}</textarea>
-                @error('description')
-                <div class="text-red-600 mb-4">{{ $message }}</div>
-                @enderror
-
-                <textarea name="content" id="content" class="w-full h-80 border border-yellow-300 rounded-md p-3 placeholder-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 resize-none" placeholder="Conteúdo...">{{ old('content') }}</textarea>
-                @error('content')
-                <div class="text-red-600 mb-6">{{ $message }}</div>
-                @enderror
-
-                <div class="flex gap-4">
-                    <button type="submit" class="bg-yellow-500 text-white p-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                        Enviar
-                    </button>
-                    <button type="reset" class="bg-gray-300 text-gray-800 p-3 rounded-lg shadow-lg transition-transform transform hover:scale-105 flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
-                            <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"></path>
-                            <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"></path>
-                        </svg>
-                        Resetar
-                    </button>
-                </div>
-            </div>
         </form>
     </div>
 </section>
 @endsection
 
 @section('js')
-{{ asset('js/script_adicionar_post.js') }}
+{{asset('js/script_adicionar_post.js')}}
 @endsection
