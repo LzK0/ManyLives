@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use app\Models\Like;
 
 class User extends Authenticatable
 {
@@ -74,7 +75,7 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    public function likes_posts() {
-        return $this->hasMany(Likes_post::class);
+    public function likes() {
+        return $this->hasMany(Like::class);
     }
 }

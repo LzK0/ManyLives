@@ -20,7 +20,11 @@ Dashboard
             </div>
             <div class="w-full md:w-3/4 p-4">
                 <div class="flex justify-between items-center mb-2">
-                    <span class="text-yellow-600 font-semibold">Usuário: {{$post->user->name}}</span>
+                    @foreach ($users as $user)
+                    @if($user->id == $post->user_id)
+                    <span class="text-yellow-600 font-semibold">Usuário: {{$user->name}}</span>
+                    @endif
+                    @endforeach
                     <span class="text-sm text-gray-500">Data: {{date('d/m/Y', strtotime($post->published_at))}}</span>
                 </div>
                 <div class="mb-2">
@@ -56,7 +60,11 @@ Dashboard
                 @foreach ($posts as $post)
                 <tr class="border-b border-yellow-300">
                     <td class="py-2">{{ $post->id }}</td>
-                    <td class="py-2">{{ $post->user->name }}</td>
+                    @foreach ($users as $user)
+                    @if($user->id == $post->user_id)
+                    <td class="py-2">{{ $user->name }}</td>
+                    @endif
+                    @endforeach
                     <td class="py-2">{{ $post->title }}</td>
                     <td class="py-2">{{ date('d/m/Y', strtotime($post->published_at)) }}</td>
                     <td class="py-2">
@@ -74,7 +82,7 @@ Dashboard
             </tbody>
         </table>
     </article>
-    
+
     <div class="w-full flex justify-center mt-4">
         {{$posts->links()}}
     </div>

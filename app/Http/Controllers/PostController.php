@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CadastraPostRequest;
 use App\Http\Requests\FormPostRequest;
-use App\Models\Likes_post;
+use App\Models\Like;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 class PostController extends Controller
 {
 
-    public function color_generator() : string
+    public function color_generator(): string
     {
         $colors = [
             'gray-200' => '#E5E7EB',
@@ -49,6 +49,28 @@ class PostController extends Controller
                 'color' => $this->color_generator()
             ]
         );
+    }
+
+    public function like($idPost)
+    {
+        if (!Auth::check()) {
+            return redirect()->back()->with("error", "Necessário estar logado para dar like!");
+        }
+        $post = Post::findOrFail($idPost);
+        $like = Like::where('post_id', $post->id)
+            ->where('user_id', Auth::id())
+            ->first();
+
+        if ($like) {
+            $like->delete();
+        } else {
+            Like::create([
+                'post_id' => $post->id,
+                'user_id' => Auth::id(),
+            ]);
+        }
+
+        return back();
     }
 
     public function vizualizar_post($id)
@@ -101,6 +123,10 @@ class PostController extends Controller
     public function deletar_post($id)
     {
         // Likes_post::where("post_id", $id)->delete();
+        $like = Like::where('post_id', $id)
+        ->where('user_id', Auth::id())
+        ->first();
+        $like->delete();
         $post = Post::findOrFail($id)->delete();
         if ($post) {
             return redirect()->back()->with("success", "Post deletado com sucesso!");
@@ -125,7 +151,6 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         if ($request->hasFile('image_post') && $request->file('image_post')->isValid()) {
             if ($post->getAttributes()['image_post'] != NULL) {
-                Storage::disk('public')->delete($post->getAttributes()['image_post']);
                 $requestImage = $request->file('image_post')->store('imagens/posts', 'public');
                 $data['image_post'] = $requestImage;
             } else {
@@ -148,7 +173,7 @@ class PostController extends Controller
         if (count($posts) == 0) {
             return redirect()->back()->with("error", "Nenhum resultado encontrado");
         } else {
-            return view('index', ['posts' => $posts , 'color' => $this->color_generator()]);
+            return view('index', ['posts' => $posts, 'color' => $this->color_generator()]);
         }
     }
     public function search_user_posts(Request $request)
@@ -166,7 +191,8 @@ class PostController extends Controller
     public function dash()
     {
         $posts = Post::orderBy("created_at")->paginate(6);
-        return view('blog.dashboard', ['posts' => $posts]);
+        $users = User::all();
+        return view('blog.dashboard', ['posts' => $posts, 'users' => $users]);
     }
 
     public function perfil()

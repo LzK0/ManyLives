@@ -17,6 +17,7 @@ Route::get('/dash', [PostController::class, 'dash'])->name('dash')->middleware('
 Route::get('/vizualizar_post/{id}', [PostController::class, 'vizualizar_post'])->name('vizualizar_post');
 Route::get('/search_index', [PostController::class, 'search_index'])->name('search_index');
 Route::get('/search_user_posts', [PostController::class, 'search_user_posts'])->name('search_user_posts');
+Route::get('/like/{id}', [PostController::class, 'like'])->name('like');	
 
 // Rotas do perfil
 Route::get('/perfil', [PostController::class,'perfil'])->name('perfil')->middleware('auth');

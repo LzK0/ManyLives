@@ -8,7 +8,7 @@
     @include('layouts.head_links') <!-- Importando os links do head. -->
     <link rel="stylesheet" type="text/css" href="@yield('css')"> <!-- Adicionando uma section para o css, se necessário-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/style_main.css')}}"> <!-- Adicionando a estilização principal da base do site -->
-</head>
+    </head>
 
 
 <!-- Conteúdo da página-->

@@ -20,10 +20,20 @@ use App\Models\User;
 
 @section('content')
 
+<style>
+    :root{
+        --random-color: {{$color}};
+    }
+
+    #random-color{
+        background-color: var(--random-color);
+    }
+</style>
+
 <section class="w-full">
 
     <div class="w-full h-full flex justify-center">
-        <div class="w-full h-full">
+        <div class="w-full h-full hidd">
             @if(!($post->image_post == "error"))
             <div class="h-[15rem] w-full flex items-center justify-center relative
             md:w-4/5 md:mx-auto md:h-[20rem]
@@ -94,7 +104,7 @@ use App\Models\User;
                     <section class="container mx-auto p-4">
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         @foreach($mais_posts as $post)
-            <article class="border border-gray-300 bg-white rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl flex flex-col">
+            <article class="border border-gray-300 bg-white rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl flex flex-col hidd">
                 @if($post->image_post && $post->image_post !== 'error')
                 <div class="w-full h-36 overflow-hidden rounded-t-lg">
                     <img src="{{ asset('storage/'.$post->image_post) }}" alt="Post Image" class="w-full h-full object-cover">

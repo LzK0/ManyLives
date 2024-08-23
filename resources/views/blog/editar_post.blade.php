@@ -14,6 +14,7 @@ Editando Post
 
 @section('content')
 
+
 <section class="w-full h-[190%]">
 
     <div class="w-full h-full flex justify-center">

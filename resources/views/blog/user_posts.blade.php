@@ -57,7 +57,7 @@ use App\Models\User;
             <!-- Exibição dos posts -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach ($posts as $post)
-                <article class="border border-gray-300 bg-white rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl flex flex-col">
+                <article class="border border-gray-300 bg-white rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl flex flex-col hidd">
                     @if ($post->image_post && $post->image_post !== 'error')
                         <div class="w-full h-48 overflow-hidden rounded-t-lg">
                             <img src="{{ asset('storage/' . $post->image_post) }}" alt="Post Image" class="w-full h-full object-cover">
