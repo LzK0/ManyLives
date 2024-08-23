@@ -22,18 +22,16 @@ use App\Models\User;
 @endauth
 @endsection
 
-
 <!-- Conteúdo principal -->
 @section('content')
 
 <!-- Titulo da página com parallax-->
 <section class="w-full h-5/6 flex items-center justify-center" id="atck">
-
     <div class="w-full h-2/5 bg-white flex flex-col items-center justify-center gap-2  
     md:w-4/6">
-        <h1 class="font-mono text-5xl sm:text-6xl md:text-7xl text-slate-700"><b class="text-yellow-500">M</b>any<b class="text-yellow-500">L</b>ives
+        <h1 class="font-mono text-5xl sm:text-6xl md:text-7xl text-slate-700 text-center break-words"><b class="text-yellow-500">M</b>any<b class="text-yellow-500">L</b>ives
         </h1>
-        <h4 class="text-lg text-slate-700">Nosso <b class="text-yellow-500">blog</b> de notícias gerais</h4>
+        <h4 class="text-lg text-slate-700 text-center break-words">Nosso <b class="text-yellow-500">blog</b> de notícias gerais</h4>
     </div>
 </section>
 
@@ -58,12 +56,10 @@ lg:gap-4" id="container-posts">
     </article>
 
     <!-- Inserindo os posts-->
-    <!-- <div id="show" class="w-full flex flex-wrap justify-center gap-5 "> -->
-
     <section class="container mx-auto p-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             @foreach($posts as $post)
-            <article class="border border-gray-300 bg-white rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl hidd">
+            <article class="border border-gray-300 bg-white rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl">
                 @if($post->image_post && $post->image_post !== 'error')
                 <div class="w-full h-36 overflow-hidden rounded-t-lg">
                     <img src="{{ asset('storage/'.$post->image_post) }}" alt="Post Image" class="w-full h-full object-cover">
@@ -83,7 +79,7 @@ lg:gap-4" id="container-posts">
                         </div>
                     </div>
                     <div class="flex-1 mb-2">
-                        <a href="{{ route('vizualizar_post', $post->id) }}" class="text-sm font-semibold text-gray-800 hover:text-yellow-600">{{ $post->title }}</a>
+                        <a href="{{ route('vizualizar_post', $post->id) }}" class="whitespace-normal text-sm font-semibold text-gray-800 hover:text-yellow-600 break-words">{{ $post->title }}</a>
                     </div>
                     <div class="flex justify-between items-center mt-2">
                         <div class="flex items-center gap-1 text-sm text-gray-600">
@@ -111,7 +107,6 @@ lg:gap-4" id="container-posts">
         </div>
     </section>
 
-    <!-- </div> -->
     <!-- Paginação-->
     <div class="w-full h-[7%] flex justify-center items-center">
         <p>{{$posts->links()}}</p>

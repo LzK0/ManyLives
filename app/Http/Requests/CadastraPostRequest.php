@@ -31,7 +31,7 @@ class CadastraPostRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'required.required' => 'O campo título é obrigatório',
+            'required.required' => 'Este campo é obrigatório',
             'required.min' => 'O campo título deve ter pelo menos :min caracteres',
             'required.max' => 'O campo título deve ter no maximo :max caracteres',
             'description.required' => 'O campo descrição é obrigatório',

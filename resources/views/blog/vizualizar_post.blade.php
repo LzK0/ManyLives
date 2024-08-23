@@ -9,7 +9,9 @@ use App\Models\User;
 @endphp
 
 @section('user_image')
+@if(Auth::check())
 {{asset('storage/'. Auth::user()->image)}}
+@endif
 @endsection
 
 @section('css')
