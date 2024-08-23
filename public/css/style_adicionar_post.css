@@ -1,0 +1,237 @@
+.insta-btn {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    padding: .6em 3em;
+    border: 3px solid;
+    border-image: linear-gradient(45deg,
+            #f09433,
+            #e6683c,
+            #dc2743,
+            #cc2366,
+            #bc1888,
+            #833ab4,
+            #5851db,
+            #405de6,
+            #515bd4,
+            #5851db,
+            #833ab4) 1;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: black;
+    text-decoration: none;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+.insta-btn:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+    z-index: -1;
+}
+
+.insta-btn:hover,
+.insta-btn:focus {
+    color: white;
+}
+
+.insta-btn:hover:before,
+.insta-btn:focus:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+.insta-btn:active {
+    transform: scale(0.9);
+}
+
+.fb-btn {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    padding: .6em 3em;
+    border: 3px solid cornflowerblue;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: cornflowerblue;
+    text-decoration: none;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+.fb-btn:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: cornflowerblue;
+    z-index: -1;
+}
+
+.fb-btn:hover,
+.fb-btn:focus {
+    color: white;
+}
+
+.fb-btn:hover:before,
+.fb-btn:focus:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+.fb-btn:active {
+    transform: scale(0.9);
+}
+
+.x-btn {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    padding: .6em 3em;
+    border: 3px solid black;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: black;
+    text-decoration: none;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+.x-btn:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: black;
+    z-index: -1;
+}
+
+.x-btn:hover,
+.x-btn:focus {
+    color: white;
+}
+
+.x-btn:hover:before,
+.x-btn:focus:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+.x-btn:active {
+    transform: scale(0.9);
+}
+
+.submit{
+    position: relative;
+    overflow: hidden;
+    height: 3rem;
+    padding: 0 4rem;
+    border-radius: 1.5rem;
+    background: #3d3a4e;
+    background-size: 400%;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.submit:hover::before{
+    transform: scaleX(1);
+}
+
+.submit-content {
+    position: relative;
+    z-index: 1;
+}
+
+.submit::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    background: linear-gradient(82.3deg,
+            rgb(147 51 234) 10.8%,
+            rgb(168 85 247) 94.3%);
+    transition: all 0.475s;
+}
+
+.atualizar {
+    color: white;
+    background-color: #222;
+    font-weight: 500;
+    height: 3rem;
+    border-radius: 1.5rem;
+    font-size: 1rem;
+    line-height: 2rem;
+    padding: 0 3rem;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    transition: all ease .5s;
+}
+
+.atualizar:hover {
+    background-color: #333;
+}
+
+.atualizar svg {
+    display: inline;
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-right: 0.75rem;
+    color: white;
+}
+
+.atualizar:focus svg {
+    animation: spin 0.5s linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
