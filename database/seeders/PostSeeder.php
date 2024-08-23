@@ -25,7 +25,7 @@ class PostSeeder extends Seeder
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.",
             "published_at" => now(),
-            "image_post" => "images/fixed/seed_post/coffe.jpg",
+            "image_post" => "images/posts/seed_post/Coffee.jpg",
             "user_id" => 6
         ]);
         Post::create([
@@ -40,7 +40,7 @@ class PostSeeder extends Seeder
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.",
             "published_at" => now(),
-            "image_post" => "images/fixed/seed_post/YellowLeaf.jpg",
+            "image_post" => "images/posts/seed_post/Leaf.jpg",
             "user_id" => 6
         ]);
         Post::create([
@@ -50,7 +50,7 @@ class PostSeeder extends Seeder
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.",
             "published_at" => now(),
-            "image_post" => "images/fixed/seed_post/LiricsLove.jpg",
+            "image_post" => "images/posts/seed_post/LiricsLove.jpg",
             "user_id" => 2
         ]);
         Post::create([
@@ -76,7 +76,7 @@ class PostSeeder extends Seeder
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
             ",
             "published_at" => now(),
-            "image_post" => "images/fixed/seed_post/Free.jpg",
+            "image_post" => "images/posts/seed_post/Free.jpg",
             "user_id" => 3
         ]);
         Post::create([
@@ -89,7 +89,7 @@ class PostSeeder extends Seeder
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.",
             "published_at" => now(),
-            "image_post" => "images/fixed/seed_post/coffe.jpg",
+            "image_post" => "images/posts/seed_post/Coffee.jpg",
             "user_id" => 6
         ]);
         Post::create([
@@ -104,7 +104,7 @@ class PostSeeder extends Seeder
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.",
             "published_at" => now(),
-            "image_post" => "images/fixed/seed_post/YellowLeaf.jpg",
+            "image_post" => "images/posts/seed_post/Leaf.jpg",
             "user_id" => 5
         ]);
         Post::create([
@@ -114,7 +114,7 @@ class PostSeeder extends Seeder
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.",
             "published_at" => now(),
-            "image_post" => "images/fixed/seed_post/LiricsLove.jpg",
+            "image_post" => "images/posts/seed_post/LiricsLove.jpg",
             "user_id" => 5
         ]);
         Post::create([
@@ -140,7 +140,7 @@ class PostSeeder extends Seeder
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
             ",
             "published_at" => now(),
-            "image_post" => "images/fixed/seed_post/Free.jpg",
+            "image_post" => "images/posts/seed_post/Free.jpg",
             "user_id" => 4
         ]);
         Post::create([
@@ -153,7 +153,7 @@ class PostSeeder extends Seeder
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.",
             "published_at" => now(),
-            "image_post" => "images/fixed/seed_post/coffe.jpg",
+            "image_post" => "images/posts/seed_post/Coffee.jpg",
             "user_id" => 4
         ]);
         Post::create([
@@ -168,7 +168,7 @@ class PostSeeder extends Seeder
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.",
             "published_at" => now(),
-            "image_post" => "images/fixed/seed_post/YellowLeaf.jpg",
+            "image_post" => "images/posts/seed_post/Leaf.jpg",
             "user_id" => 3
         ]);
         Post::create([
@@ -178,7 +178,7 @@ class PostSeeder extends Seeder
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.",
             "published_at" => now(),
-            "image_post" => "images/fixed/seed_post/LiricsLove.jpg",
+            "image_post" => "images/posts/seed_post/LiricsLove.jpg",
             "user_id" => 2
         ]);
         Post::create([
@@ -204,7 +204,7 @@ class PostSeeder extends Seeder
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
             ",
             "published_at" => now(),
-            "image_post" => "images/fixed/seed_post/Free.jpg",
+            "image_post" => "images/posts/seed_post/Free.jpg",
             "user_id" => 3
         ]);
         Post::create([
@@ -230,7 +230,7 @@ class PostSeeder extends Seeder
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
             ",
             "published_at" => now(),
-            "image_post" => "images/fixed/seed_post/Free.jpg",
+            "image_post" => "images/posts/seed_post/Free.jpg",
             "user_id" => 4
         ]);
         Post::create([
@@ -243,7 +243,7 @@ class PostSeeder extends Seeder
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.",
             "published_at" => now(),
-            "image_post" => "images/fixed/seed_post/coffe.jpg",
+            "image_post" => "images/posts/seed_post/Coffee.jpg",
             "user_id" => 5
         ]);
     

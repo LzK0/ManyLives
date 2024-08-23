@@ -17,7 +17,7 @@ class PostController extends Controller
 {
     public function index() //Função para mostrar a view index com paginação
     {
-        $posts = Post::paginate(6);
+        $posts = Post::paginate(12);
         return view(
             "index",
             [
@@ -94,9 +94,9 @@ class PostController extends Controller
         }
     }
 
-    public function editar_post(FormPostRequest $request, $id)
+    public function editar_post(CadastraPostRequest $request, $id)
     {
-        $data = $request->except('_token');
+        $data = $request->except('_token', 'submit');
         $post = Post::findOrFail($id);
         if ($request->hasFile('image_post') && $request->file('image_post')->isValid()) {
             if ($post->getAttributes()['image_post'] != NULL) {
@@ -168,17 +168,17 @@ class PostController extends Controller
         return view("blog.perfil");
     }
 
-    public function atualizar_perfil(Request $request)
+    public function atualizar_perfil(Request $request, $id)
     {
-        $data = $request->except('_token', 'password', 'password_confirmation');
-        $perfil = User::findOrFail($request->user_id);
+        $data = $request->except('_token', 'password', 'password_confirmation', 'submit');
+        $perfil = User::findOrFail($id);
 
         $data['links'] = $request->links == 'on' ? 1 : 0;
-        
+
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             if ($perfil->getAttributes()['image'] != NULL) {
                 Storage::disk('public')->delete($perfil->getAttributes()['image']);
-                $requestImage = $request->file('image')->store('imagens/users', 'public');
+                $requestImage = $request->file('image')->store('images/users', 'public');
                 $data['image'] = $requestImage;
             } else {
                 unset($data['image']);
@@ -188,7 +188,7 @@ class PostController extends Controller
         if ($update) {
             return redirect()->route('index')->with('success', 'Perfil atualizado com sucesso!');
         } else {
-            return redirect()->route(back(), $request->user_id)->with(['erros' => 'Falha ao editar']);
+            return redirect()->route(back(), $id)->with(['erros' => 'Falha ao editar']);
         }
     }
 

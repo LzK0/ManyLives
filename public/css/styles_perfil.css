@@ -35,7 +35,7 @@
 }
 
 .checkbox:checked~.slider {
-    background-color: rgb(168 85 247);
+    background-color: rgb(234 179 8);
 }
 
 .checkbox:active~.slider::before {

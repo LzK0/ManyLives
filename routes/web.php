@@ -18,7 +18,7 @@ Route::get('/vizualizar_post/{id}', [PostController::class, 'vizualizar_post'])-
 
 // Rotas do perfil
 Route::get('/perfil', [PostController::class,'perfil'])->name('perfil')->middleware('auth');
-Route::put('/atualizar_perfil', [PostController::class,'atualizar_perfil'])->name('atualizar_perfil')->middleware('auth');
+Route::put('/atualizar_perfil/{id}', [PostController::class,'atualizar_perfil'])->name('atualizar_perfil')->middleware('auth');
 
 Route::get('/user_posts/{id}', [PostController::class, 'user_posts'])->name('user_posts')->middleware('auth');
 Route::get('/tela_editar_post/{id}', [PostController::class, 'tela_editar_post'])->name('tela_editar_post')->middleware('auth');

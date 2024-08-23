@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+// Importações
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -23,10 +24,15 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
+    protected $fillable = [ // Definindo valores para os usuários
         'name',
+        'image',
         'email',
         'password',
+        'links',
+        'instagram',
+        'facebook',
+        'twitter'
     ];
 
     /**
@@ -61,5 +67,14 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function posts() //Informando a chave primária
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function likes_posts() {
+        return $this->hasMany(Likes_post::class);
     }
 }
