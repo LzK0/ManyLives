@@ -1,7 +1,7 @@
 # ManyLives
 A blog made with Laravel.
 
-**Imports Terminal:**
+**Imports:**
 
 --
 
