@@ -154,7 +154,7 @@
     transform: scale(0.9);
 }
 
-.submit{
+.submit {
     position: relative;
     overflow: hidden;
     height: 3rem;
@@ -167,7 +167,7 @@
     cursor: pointer;
 }
 
-.submit:hover::before{
+.submit:hover::before {
     transform: scaleX(1);
 }
 
@@ -187,8 +187,8 @@
     height: inherit;
     border-radius: inherit;
     background: linear-gradient(82.3deg,
-            rgb(147 51 234) 10.8%,
-            rgb(168 85 247) 94.3%);
+            rgb(250 204 21) 10.8%,
+            rgb(234 179 8) 94.3%);
     transition: all 0.475s;
 }
 

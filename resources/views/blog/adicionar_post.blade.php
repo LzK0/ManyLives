@@ -9,7 +9,7 @@ Adicionar POST
 @endsection
 
 @section('css')
-{{asset('css/style_adicionar_post.css')}}
+{{asset('css/style_adiciona_post.css')}}
 @endsection
 
 @section('content')
@@ -18,7 +18,7 @@ Adicionar POST
     <div class="w-full h-full flex justify-center">
         <form action="{{route('cadastro_post', Auth::user()->id)}}" method="post" enctype="multipart/form-data" class="w-[80%] h-full">
             @csrf
-            <div class="h-[20%] w-full bg-zinc-600 flex items-center justify-center relative
+            <div class="h-[20%] w-full bg-zinc-500 flex items-center justify-center relative
             md:h-[35%]
             xl:h-[40%]">
                 <img src="" alt="" class="w-full h-full hidden" id="image_preview">

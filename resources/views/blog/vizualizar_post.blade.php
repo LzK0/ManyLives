@@ -123,7 +123,7 @@ use App\Models\User;
                             <i class="fa-regular fa-heart text-red-500 cursor-pointer"></i>
                             <p class="text-xs">2</p>
                         </div>
-                        @if(Auth::check() && $user->id == $post->user_id)
+                        @if(Auth::check() && Auth::user()->id == $post->user_id)
                         <div class="flex items-center gap-2 text-sm text-gray-600">
                             <a href="{{ route('tela_editar_post', $post->id) }}" class="text-yellow-500 hover:text-yellow-600 transition duration-200">
                                 <i class="fa-solid fa-pencil"></i>
