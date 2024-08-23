@@ -32,7 +32,6 @@
 
     <nav id="sidebar" class="w-20 h-full bg-zinc-200 transition-all ease-linear duration-300 flex flex-col fixed z-10">
         <div class="w-full h-1/6 items-center justify-center flex flex-col">
-            <!-- Verificando a imagem do user -->
             @auth
             <div class="w-20 h-20 rounded-full flex justify-center items-center p-2">
                 <img src="@yield('user_image')" alt="" class="w-[rem3] h-full rounded-full"> <!-- Section para a foto do user-->

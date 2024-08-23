@@ -50,15 +50,14 @@ class PostController extends Controller
 
     public function cadastro_post(CadastraPostRequest $request)
     {
-        $data = $request->except('_token');
-        $post = new Post();
+        $data = $request->except('_token','submit');
 
         if ($request->hasFile('image_post') && $request->file('image_post')->isValid()) {
             $requestImage = $request->file('image_post')->store("images/posts", "public");
             $data['image_post'] = $requestImage;
         }
 
-        $insert = $post->create($data);
+        $insert = Post::create($data);
 
         if ($insert) {
             return redirect()->route('index')->with("success", "Post criado com sucesso!");
