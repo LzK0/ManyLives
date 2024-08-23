@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+
 class UsersSeeder extends Seeder
 {
     /**
@@ -17,19 +18,25 @@ class UsersSeeder extends Seeder
             'name' => 'Roger',
             'image' => 'images/users/seed_user/ImagemDoADM.jpg',
             'email' => 'admin@admin',
-            'password' => 'admin123'
+            'password' => 'admin123',
         ]);
         User::create([
             'name' => 'Iza',
             'image' => 'images/users/seed_user/iza_profile.jpg',
             'email' => 'iza@iza',
-            'password' => encrypt('123456')
+            'password' => encrypt('123456'),
+            'links' => 0,
+            'instagram' => 'https://www.instagram.com',
+            'facebook' => 'https://www.facebook.com',
+            'twitter' => 'https://www.twitter.com'
         ]);
         User::create([
             'name' => 'Antonio',
             'image' => 'images/users/seed_user/antonio_profile.jpg',
             'email' => 'antonio@antonio',
-            'password' => encrypt('123456')
+            'password' => encrypt('123456'),
+            'links' => 1,
+            'instagram' => 'https://www.instagram.com'
         ]);
         User::create([
             'name' => 'Lukas',
@@ -41,13 +48,20 @@ class UsersSeeder extends Seeder
             'name' => 'Marta',
             'image' =>  'images/users/seed_user/marta_profile.jpg',
             'email' => 'marta@marta',
-            'password' => encrypt('123456')
+            'password' => encrypt('123456'),
+            'links' => 1,
+            'facebook' => 'https://www.facebook.com',
+            'twitter' => 'https://www.twitter.com'
         ]);
         User::create([
             'name' => 'Bea',
             'image' =>  'images/users/seed_user/orange_cat.jpg',
             'email' => 'bea@bea',
-            'password' => encrypt('123456')
+            'password' => encrypt('123456'),
+            'links' => 1,
+            'instagram' => 'https://www.instagram.com',
+            'facebook' => 'https://www.facebook.com',
+            'twitter' => 'https://www.twitter.com'
         ]);
     }
 }

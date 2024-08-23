@@ -25,6 +25,15 @@ use App\Models\User;
 <!-- Conteúdo principal -->
 @section('content')
 
+<style>
+    :root{
+--random_color: {{$color}};
+    }
+    #random-color{
+        background-color: var(--random_color);
+    }
+</style>
+
 <!-- Titulo da página com parallax-->
 <section class="w-full h-5/6 flex items-center justify-center" id="atck">
     <div class="w-full h-2/5 bg-white flex flex-col items-center justify-center gap-2  
@@ -46,12 +55,12 @@ lg:gap-4" id="container-posts">
             <form action="{{ route('search') }}" method="get">
                 <input type="text" id="live-search" maxlength="60" placeholder="Pesquisar título..."
                     class="w-full py-3 px-4 rounded-lg border border-yellow-500 bg-gray-50 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-yellow-600 text-sm transition duration-300 ease-in-out">
-                    <button type="submit" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500 hover:text-gray-700 transition-colors duration-300">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 15.232a6.5 6.5 0 1 0-9.193-9.193 6.5 6.5 0 0 0 9.193 9.193zm1.06-1.06a8 8 0 1 0-11.313-11.313A8 8 0 0 0 16.293 14.171l3.657 3.657a1 1 0 0 0 1.415-1.415l-3.657-3.657z" />
-                        </svg>
-                    </button>
-                </form>
+                <button type="submit" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500 hover:text-gray-700 transition-colors duration-300">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 15.232a6.5 6.5 0 1 0-9.193-9.193 6.5 6.5 0 0 0 9.193 9.193zm1.06-1.06a8 8 0 1 0-11.313-11.313A8 8 0 0 0 16.293 14.171l3.657 3.657a1 1 0 0 0 1.415-1.415l-3.657-3.657z" />
+                    </svg>
+                </button>
+            </form>
         </div>
     </article>
 
@@ -59,16 +68,15 @@ lg:gap-4" id="container-posts">
     <section class="container mx-auto p-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             @foreach($posts as $post)
-            <article class="border border-gray-300 bg-white rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl">
+            <article class="border border-gray-300 bg-white rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl flex flex-col">
                 @if($post->image_post && $post->image_post !== 'error')
                 <div class="w-full h-36 overflow-hidden rounded-t-lg">
                     <img src="{{ asset('storage/'.$post->image_post) }}" alt="Post Image" class="w-full h-full object-cover">
                 </div>
                 @else
-                <div class="w-full h-36 bg-gray-200 overflow-hidden rounded-t-lg">
-                </div>
+                <div class="w-full h-36 overflow-hidden rounded-t-lg" id="random-color"></div>
                 @endif
-                <div class="flex flex-col p-3 h-52">
+                <div class="flex flex-col flex-1 p-3">
                     <div class="flex items-center gap-3 mb-2">
                         <div class="w-10 h-10 rounded-full bg-gray-300 overflow-hidden">
                             <img src="{{ asset('storage/'. User::find($post->user_id)->image) }}" alt="User Image" class="w-full h-full object-cover rounded-full">
@@ -80,6 +88,9 @@ lg:gap-4" id="container-posts">
                     </div>
                     <div class="flex-1 mb-2">
                         <a href="{{ route('vizualizar_post', $post->id) }}" class="whitespace-normal text-sm font-semibold text-gray-800 hover:text-yellow-600 break-words">{{ $post->title }}</a>
+                    </div>
+                    <div class="w-fullp-2 break-words flex-1">
+                        <p class="text-sm text-gray-700">{{ $post->description }}</p>
                     </div>
                     <div class="flex justify-between items-center mt-2">
                         <div class="flex items-center gap-1 text-sm text-gray-600">

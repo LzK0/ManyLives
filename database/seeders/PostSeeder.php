@@ -54,6 +54,16 @@ class PostSeeder extends Seeder
             "user_id" => 2
         ]);
         Post::create([
+            "title" => "As folhas caem mais na primavera?",
+            "description" => "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
+            Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.",
+            "published_at" => now(),
+            "image_post" => "error",
+            "user_id" => 2
+        ]);
+        Post::create([
             "title" => "A liberdade é relativa?",
             "description" => "lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Praesent euismod, nisl sit",
@@ -91,6 +101,16 @@ class PostSeeder extends Seeder
             "published_at" => now(),
             "image_post" => "images/posts/seed_post/Coffee.jpg",
             "user_id" => 6
+        ]);
+        Post::create([
+            "title" => "Como os letreros chamam sua atenção?",
+            "description" => "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
+            Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.",
+            "published_at" => now(),
+            "image_post" => "error",
+            "user_id" => 5
         ]);
         Post::create([
             "title" => "As folhas caem mais na primavera?",
@@ -155,6 +175,26 @@ class PostSeeder extends Seeder
             "published_at" => now(),
             "image_post" => "images/posts/seed_post/Coffee.jpg",
             "user_id" => 4
+        ]);
+        Post::create([
+            "title" => "A liberdade é relativa?",
+            "description" => "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
+            Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.",
+            "published_at" => now(),
+            "image_post" => "error",
+            "user_id" => 2
+        ]);
+        Post::create([
+            "title" => "Como os letreros chamam sua atenção?",
+            "description" => "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.
+            Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.",
+            "published_at" => now(),
+            "image_post" => "error",
+            "user_id" => 3
         ]);
         Post::create([
             "title" => "As folhas caem mais na primavera?",

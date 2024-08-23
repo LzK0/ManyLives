@@ -18,10 +18,28 @@ class PostController extends Controller
     public function index() //Função para mostrar a view index com paginação
     {
         $posts = Post::paginate(12);
+        $colors = [
+            'gray-200' => '#E5E7EB',
+            'gray-300' => '#D1D5DB',
+            'gray-400' => '#9CA3AF',
+            'blue-200' => '#BFDBFE',
+            'blue-300' => '#93C5FD',
+            'green-200' => '#D1FAE5',
+            'green-300' => '#A7F3D0',
+            'rosa-claro' => '#F8E1E1',
+            'rosa-pálido' => '#F9D5D5',
+            'rosa-suave' => '#FBD9D9',
+            'yellow-200' => '#FEF9C3',
+            'yellow-300' => '#FDE68A',
+        ];
+
+        $randomColorKey = array_rand($colors);
+        $randomColor = $colors[$randomColorKey];
         return view(
             "index",
             [
-                "posts" => $posts
+                "posts" => $posts,
+                'color' => $randomColor
             ]
         );
     }
@@ -50,7 +68,7 @@ class PostController extends Controller
 
     public function cadastro_post(CadastraPostRequest $request)
     {
-        $data = $request->except('_token','submit');
+        $data = $request->except('_token', 'submit');
 
         if ($request->hasFile('image_post') && $request->file('image_post')->isValid()) {
             $requestImage = $request->file('image_post')->store("images/posts", "public");

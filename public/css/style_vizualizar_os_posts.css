@@ -1,0 +1,183 @@
+.hidd{
+    opacity: 0;
+    filter: blur(2px);
+    transition: all ease .8s;
+    transform: translateY(30%);
+}
+
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transition: all ease .8s;
+    transform: translateY(0);
+}
+
+.content-off{
+    opacity: 0;
+    filter: blur(0.5px);
+    transition: all ease .8s;
+    transform: translateX(30%);
+}
+
+.content{
+    opacity: 1;
+    filter: blur(0);
+    transition: all ease .8s;
+    transform: translateX(0);
+}
+
+.insta-btn {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    padding: .6em 3em;
+    border: 3px solid;
+    border-image: linear-gradient(45deg,
+            #f09433,
+            #e6683c,
+            #dc2743,
+            #cc2366,
+            #bc1888,
+            #833ab4,
+            #5851db,
+            #405de6,
+            #515bd4,
+            #5851db,
+            #833ab4) 1;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: black;
+    text-decoration: none;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+.insta-btn:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+    z-index: -1;
+}
+
+.insta-btn:hover,
+.insta-btn:focus {
+    color: white;
+}
+
+.insta-btn:hover:before,
+.insta-btn:focus:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+.insta-btn:active {
+    transform: scale(0.9);
+}
+
+.fb-btn {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    padding: .6em 3em;
+    border: 3px solid cornflowerblue;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: cornflowerblue;
+    text-decoration: none;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+.fb-btn:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: cornflowerblue;
+    z-index: -1;
+}
+
+.fb-btn:hover,
+.fb-btn:focus {
+    color: white;
+}
+
+.fb-btn:hover:before,
+.fb-btn:focus:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+.fb-btn:active {
+    transform: scale(0.9);
+}
+
+.x-btn {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    padding: .6em 3em;
+    border: 3px solid black;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: black;
+    text-decoration: none;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+.x-btn:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: black;
+    z-index: -1;
+}
+
+.x-btn:hover,
+.x-btn:focus {
+    color: white;
+}
+
+.x-btn:hover:before,
+.x-btn:focus:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+.x-btn:active {
+    transform: scale(0.9);
+}
