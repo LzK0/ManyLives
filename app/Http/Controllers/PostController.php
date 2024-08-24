@@ -18,6 +18,115 @@ use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
+
+    public function update_photo($imgDB): void
+    {
+        $guestUser = storage_path('app/public/images/fixed/guestUser.jpg');
+        $antonio_profile = storage_path('app/public/images/users/seed_user/antonio_profile.jpg');
+        $imagemDoADM = storage_path('app/public/images/users/seed_user/ImagemDoADM.jpg');
+        $iza_profile = storage_path('app/public/images/users/seed_user/iza_profile.jpg');
+        $orange_cat = storage_path('app/public/images/users/seed_user/orange_cat.jpg');
+        $white_cat = storage_path('app/public/images/users/seed_user/white_cat.jpg');
+        $marta_profile = storage_path('app/public/images/users/seed_user/marta_profile.jpg');
+
+        switch ($imgDB) {
+            case 'images/users/seed_user/ImagemDoADM.jpg':
+                if (file_exists($imagemDoADM)) {
+                    $imgContent = file_get_contents($imagemDoADM);
+                    $destinationPath = storage_path('app/public/images/users/seed_user/ImagemDoADM.jpg');
+                    file_put_contents($destinationPath, $imgContent);
+                }
+                break;
+
+            case 'images/users/seed_user/iza_profile.jpg':
+                if (file_exists($iza_profile)) {
+                    $imgContent = file_get_contents($iza_profile);
+                    $destinationPath = storage_path('app/public/images/users/seed_user/iza_profile.jpg');
+                    file_put_contents($destinationPath, $imgContent);
+                }
+                break;
+
+            case 'images/users/seed_user/orange_cat.jpg':
+                if (file_exists($orange_cat)) {
+                    $imgContent = file_get_contents($orange_cat);
+                    $destinationPath = storage_path('app/public/images/users/seed_user/orange_cat.jpg');
+                    file_put_contents($destinationPath, $imgContent);
+                }
+                break;
+
+            case 'images/users/seed_user/white_cat.jpg':
+                if (file_exists($white_cat)) {
+                    $imgContent = file_get_contents($white_cat);
+                    $destinationPath = storage_path('app/public/images/users/seed_user/white_cat.jpg');
+                    file_put_contents($destinationPath, $imgContent);
+                }
+                break;
+
+            case 'images/users/seed_user/marta_profile.jpg':
+                if (file_exists($marta_profile)) {
+                    $imgContent = file_get_contents($marta_profile);
+                    $destinationPath = storage_path('app/public/images/users/seed_user/marta_profile.jpg');
+                    file_put_contents($destinationPath, $imgContent);
+                }
+                break;
+            case 'images/users/seed_user/antonio_profile.jpg':
+                if (file_exists($antonio_profile)) {
+                    $imgContent = file_get_contents($antonio_profile);
+                    $destinationPath = storage_path('app/public/images/users/seed_user/antonio_profile.jpg');
+                    file_put_contents($destinationPath, $imgContent);
+                }
+                break;
+            case 'images/fixed/guestUser.jpg':
+                if (file_exists($guestUser)) {
+                    $imgContent = file_get_contents($guestUser);
+                    $destinationPath = storage_path('app/public/images/fixed/guestUser.jpg');
+                    file_put_contents($destinationPath, $imgContent);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+    public function update_posts($postDB): void
+    {
+        $coffee = storage_path('app/public/images/posts/seed_post/Coffee.jpg');
+        $free = storage_path('app/public/images/posts/seed_post/Free.jpg');
+        $leaf = storage_path('app/public/images/posts/seed_post/Leaf.jpg');
+        $liricsLove = storage_path('app/public/images/posts/seed_post/LiricsLove.jpg');
+
+        switch ($postDB) {
+            case 'images/posts/seed_post/Coffee.jpg':
+                if (file_exists($coffee)) {
+                    $imgContent = file_get_contents($coffee);
+                    $destinationPath = storage_path('app/public/images/posts/seed_post/Coffee.jpg');
+                    file_put_contents($destinationPath, $imgContent);
+                }
+                break;
+            case 'images/posts/seed_post/Free.jpg':
+                if (file_exists($free)) {
+                    $imgContent = file_get_contents($free);
+                    $destinationPath = storage_path('app/public/images/posts/seed_post/Free.jpg');
+                    file_put_contents($destinationPath, $imgContent);
+                }
+                break;
+            case 'images/posts/seed_post/Leaf.jpg':
+                if (file_exists($leaf)) {
+                    $imgContent = file_get_contents($leaf);
+                    $destinationPath = storage_path('app/public/images/posts/seed_post/Leaf.jpg');
+                    file_put_contents($destinationPath, $imgContent);
+                }
+                break;
+            case 'images/posts/seed_post/LiricsLove.jpg':
+                if (file_exists($liricsLove)) {
+                    $imgContent = file_get_contents($liricsLove);
+                    $destinationPath = storage_path('app/public/images/posts/seed_post/LiricsLove.jpg');
+                    file_put_contents($destinationPath, $imgContent);
+                }
+                break;
+            default:
+                break;
+        }
+    }
     public function index() //Função para mostrar a view index com paginação
     {
         $posts = Post::paginate(12);
@@ -131,6 +240,9 @@ class PostController extends Controller
     {
         $data = $request->except('_token', 'submit');
         $post = Post::findOrFail($id);
+
+        $this->update_photo($post['image_post']);
+
         if ($request->hasFile('image_post') && $request->file('image_post')->isValid()) {
             if ($post->getAttributes()['image_post'] != NULL) {
                 $requestImage = $request->file('image_post')->store('imagens/posts', 'public');
@@ -150,7 +262,7 @@ class PostController extends Controller
     public function search_index(Request $request) //Função para buscar o post (index)
     {
         $search = $request->input('search');
-        $posts = Post::where('title', 'like', '%' . $search . '%')->paginate(12);
+        $posts = Post::where('title', 'like', '%' . $search . '%')->orderBy("created_at")->paginate(12);
         if (count($posts) == 0) {
             return redirect()->back()->with("error", "Nenhum resultado encontrado");
         } else {
@@ -161,7 +273,7 @@ class PostController extends Controller
     {
         $search = $request->input('search');
         $posts = Post::where('user_id', Auth::user()->id)
-            ->where('title', 'like', "%$search")->paginate(9);
+            ->where('title', 'like', "%$search")->orderBy("created_at")->paginate(9);
         if (count($posts) == 0) {
             return redirect()->back()->with("error", "Nenhum resultado encontrado");
         } else {
@@ -181,27 +293,29 @@ class PostController extends Controller
         return view("blog.perfil");
     }
 
-    public function atualizar_perfil(Request $request, $id) //Função para atualizar o perfil do usuario
+    public function atualizar_perfil(Request $request, $id)
     {
         $data = $request->except('_token', 'password', 'password_confirmation', 'submit');
         $perfil = User::findOrFail($id);
 
-        $data['links'] = $request->links == 'on' ? 1 : 0;
+        $this->update_photo($data['image']);
 
+        $data['links'] = $request->links == 'on' ? 1 : 0;
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            if ($perfil->getAttributes()['image'] != NULL) {
-                Storage::disk('public')->delete($perfil->getAttributes()['image']);
-                $requestImage = $request->file('image')->store('images/users', 'public');
-                $data['image'] = $requestImage;
-            } else {
-                unset($data['image']);
+            if ($perfil->image != NULL && Storage::disk('public')->exists($perfil->image)) {
+                Storage::disk('public')->delete($perfil->image);
             }
+            $requestImage = $request->file('image')->store('images/users', 'public');
+            $data['image'] = $requestImage;
+        } else {
+            unset($data['image']);
         }
+
         $update = $perfil->update($data);
         if ($update) {
             return redirect()->route('index')->with('success', 'Perfil atualizado com sucesso!');
         } else {
-            return redirect()->route(back(), $id)->with(['erros' => 'Falha ao editar']);
+            return redirect()->back()->with('errors', 'Falha ao editar');
         }
     }
 }
