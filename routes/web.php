@@ -31,6 +31,9 @@ Route::get('/like/{id}', [PostController::class, 'like'])->name('like');
 Route::get('/perfil', [PostController::class, 'perfil'])->name('perfil')->middleware('auth');
 Route::put('/atualizar_perfil/{id}', [PostController::class, 'atualizar_perfil'])->name('atualizar_perfil')->middleware('auth');
 
+// Rotas dos perfis de outros usuários
+Route::get('/perfil_other_user/{id}', [PostController::class, 'perfil_other_user'])->name('perfil_other_user');
+
 // Todos os posts do usuário logado
 Route::get('/user_posts/{id}', [PostController::class, 'user_posts'])->name('user_posts')->middleware('auth');
 

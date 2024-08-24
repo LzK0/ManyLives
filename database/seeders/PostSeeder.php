@@ -125,7 +125,7 @@ class PostSeeder extends Seeder
             Praesent euismod, nisl sit amet ultricies tincidunt, libero nunc ultricies nisl, ut aliquet nunc nisl sit amet nunc.",
             "published_at" => now(),
             "image_post" => "images/posts/seed_post/Leaf.jpg",
-            "user_id" => 5
+            "user_id" => 3
         ]);
         Post::create([
             "title" => "Como os letreros chamam sua atenção?",

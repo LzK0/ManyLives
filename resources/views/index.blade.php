@@ -4,10 +4,6 @@
 Home
 @endsection
 
-@php
-use App\Models\User;
-@endphp
-
 @section('css')
 {{ asset('css/styles_index.css') }}
 @endsection
@@ -64,10 +60,22 @@ use App\Models\User;
                 <div class="flex flex-col flex-1 p-3">
                     <div class="flex items-center gap-3 mb-2">
                         <div class="w-10 h-10 rounded-full bg-gray-300 overflow-hidden">
-                            <img src="{{ asset('storage/'. User::find($post->user_id)->image) }}" alt="User Image" class="w-full h-full object-cover rounded-full">
+                            <a href="{{route('perfil_other_user', $post->user_id)}}">
+                                @foreach ($users as $user )
+                                @if($post->user_id == $user->id)
+                                <img src="{{ asset('storage/'. $user->image)}}" alt="User Image" class="w-full h-full object-cover rounded-full">
+                                @break
+                                @endif
+                                @endforeach
+                            </a>
                         </div>
                         <div class="flex flex-col justify-center">
-                            <p class="text-xs font-semibold">{{ User::find($post->user_id)->name }}</p>
+                            @foreach ($users as $user )
+                            @if($post->user_id == $user->id)
+                            <p class="text-xs font-semibold">{{ $user->name}}</p>
+                            @break
+                            @endif
+                            @endforeach
                             <p class="text-xs text-gray-500">{{ date('d/m/Y', strtotime($post->published_at)) }}</p>
                         </div>
                     </div>

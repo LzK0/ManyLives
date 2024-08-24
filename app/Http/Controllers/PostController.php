@@ -130,10 +130,12 @@ class PostController extends Controller
     public function index() //Função para mostrar a view index com paginação
     {
         $posts = Post::paginate(12);
+        $users = User::all();
         return view(
             "index",
             [
                 "posts" => $posts,
+                "users" => $users
             ]
         );
     }
@@ -317,5 +319,12 @@ class PostController extends Controller
         } else {
             return redirect()->back()->with('errors', 'Falha ao editar');
         }
+    }
+
+    public function perfil_other_user($idUser)
+    {
+        $user = User::findOrFail($idUser);
+        $posts = Post::where('user_id', $user->id)->orderBy("created_at")->paginate(9);
+        return view('blog.perfil_other', ['posts' => $posts, 'user' => $user]);
     }
 }
