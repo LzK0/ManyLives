@@ -13,32 +13,11 @@ use App\Models\User;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 
 class PostController extends Controller
 {
-
-    public function color_generator(): string
-    {
-        $colors = [
-            'gray-200' => '#E5E7EB',
-            'gray-300' => '#D1D5DB',
-            'gray-400' => '#9CA3AF',
-            'blue-200' => '#BFDBFE',
-            'blue-300' => '#93C5FD',
-            'green-200' => '#D1FAE5',
-            'green-300' => '#A7F3D0',
-            'rosa-claro' => '#F8E1E1',
-            'rosa-pálido' => '#F9D5D5',
-            'rosa-suave' => '#FBD9D9',
-            'yellow-200' => '#FEF9C3',
-            'yellow-300' => '#FDE68A',
-        ];
-
-        $randomColorKey = array_rand($colors);
-        $randomColor = $colors[$randomColorKey];
-        return $randomColor;
-    }
     public function index() //Função para mostrar a view index com paginação
     {
         $posts = Post::paginate(12);
@@ -46,19 +25,20 @@ class PostController extends Controller
             "index",
             [
                 "posts" => $posts,
-                'color' => $this->color_generator()
             ]
         );
     }
 
-    public function like($idPost)
+    public function like($idPost) // Função para dar like
     {
         if (!Auth::check()) {
-            return redirect()->back()->with("error", "Necessário estar logado para dar like!");
+            return redirect()->back()->with(['error' => 'Você precisa estar logado para dar like.']);
         }
+
         $post = Post::findOrFail($idPost);
+        $userId = Auth::id();
         $like = Like::where('post_id', $post->id)
-            ->where('user_id', Auth::id())
+            ->where('user_id', $userId)
             ->first();
 
         if ($like) {
@@ -66,14 +46,14 @@ class PostController extends Controller
         } else {
             Like::create([
                 'post_id' => $post->id,
-                'user_id' => Auth::id(),
+                'user_id' => $userId,
             ]);
         }
 
-        return back();
+        return redirect()->back();
     }
 
-    public function vizualizar_post($id)
+    public function vizualizar_post($id)  //Função para mostrar o post
     {
         $post = Post::findOrFail($id);
         $user = User::findOrFail($post->user_id);
@@ -89,13 +69,13 @@ class PostController extends Controller
         }
     }
 
-    public function adicionar_post()
+    public function adicionar_post() //Função para mostrar a view de adicionar post
     {
         return view("blog.adicionar_post");
     }
 
 
-    public function cadastro_post(CadastraPostRequest $request)
+    public function cadastro_post(CadastraPostRequest $request) //Função para cadastrar o post
     {
         $data = $request->except('_token', 'submit');
 
@@ -117,25 +97,27 @@ class PostController extends Controller
     {
         $posts = Post::where("user_id", $id)->paginate(6);
         $user = User::findOrFail($id);
-        return view("blog.user_posts", ["posts" => $posts, 'user' => $user, 'color' => $this->color_generator()]);
+        return view("blog.user_posts", ["posts" => $posts, 'user' => $user]);
     }
 
-    public function deletar_post($id)
+    public function deletar_post($id) //Função para deletar o post
     {
-        // Likes_post::where("post_id", $id)->delete();
         $like = Like::where('post_id', $id)
-        ->where('user_id', Auth::id())
-        ->first();
-        $like->delete();
-        $post = Post::findOrFail($id)->delete();
-        if ($post) {
-            return redirect()->back()->with("success", "Post deletado com sucesso!");
+            ->first();
+        if ($like) {
+            $like->delete();
+            $post = Post::findOrFail($id)->delete();
+            if ($post) {
+                return redirect()->back()->with("success", "Post deletado com sucesso!");
+            } else {
+                return redirect()->back()->with("error", "Erro ao deletar o post!");
+            }
         } else {
-            return redirect()->back()->with("error", "Erro ao deletar o post!");
+            return redirect()->back()->with("error", "Erro ao deletar o(s) like(s)!");
         }
     }
 
-    public function tela_editar_post($id)
+    public function tela_editar_post($id) //Função para mostrar a view de editar o post
     {
         $post = Post::findOrFail($id);
         if ($post) {
@@ -145,7 +127,7 @@ class PostController extends Controller
         }
     }
 
-    public function editar_post(CadastraPostRequest $request, $id)
+    public function editar_post(CadastraPostRequest $request, $id) //Função para editar o post
     {
         $data = $request->except('_token', 'submit');
         $post = Post::findOrFail($id);
@@ -165,18 +147,17 @@ class PostController extends Controller
         }
     }
 
-    // Teste
-    public function search_index(Request $request)
+    public function search_index(Request $request) //Função para buscar o post (index)
     {
         $search = $request->input('search');
         $posts = Post::where('title', 'like', '%' . $search . '%')->paginate(12);
         if (count($posts) == 0) {
             return redirect()->back()->with("error", "Nenhum resultado encontrado");
         } else {
-            return view('index', ['posts' => $posts, 'color' => $this->color_generator()]);
+            return view('index', ['posts' => $posts, 'search' => $search]);
         }
     }
-    public function search_user_posts(Request $request)
+    public function search_user_posts(Request $request) //Função para buscar o post (user_posts)
     {
         $search = $request->input('search');
         $posts = Post::where('user_id', Auth::user()->id)
@@ -184,11 +165,11 @@ class PostController extends Controller
         if (count($posts) == 0) {
             return redirect()->back()->with("error", "Nenhum resultado encontrado");
         } else {
-            return view('blog.user_posts', ['posts' => $posts, 'color' => $this->color_generator()]);
+            return view('blog.user_posts', ['posts' => $posts]);
         }
     }
 
-    public function dash()
+    public function dash() //Função para mostrar a dashboard (ordem de data)
     {
         $posts = Post::orderBy("created_at")->paginate(6);
         $users = User::all();
@@ -200,7 +181,7 @@ class PostController extends Controller
         return view("blog.perfil");
     }
 
-    public function atualizar_perfil(Request $request, $id)
+    public function atualizar_perfil(Request $request, $id) //Função para atualizar o perfil do usuario
     {
         $data = $request->except('_token', 'password', 'password_confirmation', 'submit');
         $perfil = User::findOrFail($id);
@@ -223,18 +204,4 @@ class PostController extends Controller
             return redirect()->route(back(), $id)->with(['erros' => 'Falha ao editar']);
         }
     }
-
-    // public function search_post(Request $request)
-    // {
-    //     $query = $request->input('query');
-    //     $posts = Post::where('title', 'like', '%' . $query . '%')->paginate(12);
-    //     return view('index', ['posts' => $posts]);
-    // }
-
-    public function upload(Request $request) {}
-    public function teste_one() {}
 }
-
-        // Search for posts containing the query
-
-        // Return the view with the posts
