@@ -70,12 +70,25 @@ class User extends Authenticatable
         ];
     }
 
+
+
     public function posts() //Informando a chave primária
     {
         return $this->hasMany(Post::class);
     }
 
-    public function likes() {
+    public function likes()
+    {
         return $this->hasMany(Like::class);
+    }
+
+    public function following()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'id_follower', 'id_followed');
+    }
+
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'id_followed', 'id_follower');
     }
 }

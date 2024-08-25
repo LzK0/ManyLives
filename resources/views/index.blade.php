@@ -57,50 +57,69 @@ Home
                 @else
                 <div class="w-full h-36 overflow-hidden rounded-t-lg random-color"></div>
                 @endif
-                <div class="flex flex-col flex-1 p-3">
-                    <div class="flex items-center gap-3 mb-2">
-                        <div class="w-10 h-10 rounded-full bg-gray-300 overflow-hidden">
-                            <a href="{{route('perfil_other_user', $post->user_id)}}">
+                <div class="flex flex-col flex-1 p-4">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden">
+                                <a href="{{route('perfil_other_user', $post->user_id)}}">
+                                    @foreach ($users as $user )
+                                    @if($post->user_id == $user->id)
+                                    <img src="{{ asset('storage/'. $user->image)}}" alt="User Image" class="w-full h-full object-cover rounded-full">
+                                    @break
+                                    @endif
+                                    @endforeach
+                                </a>
+                            </div>
+                            <div class="flex flex-col justify-center">
                                 @foreach ($users as $user )
                                 @if($post->user_id == $user->id)
-                                <img src="{{ asset('storage/'. $user->image)}}" alt="User Image" class="w-full h-full object-cover rounded-full">
+                                <p class="text-sm font-semibold text-gray-800">{{ $user->name}}</p>
+                                <p class="text-xs text-gray-500">{{ date('d/m/Y', strtotime($post->published_at)) }}</p>
+                                <p class="text-xs text-gray-500">Seguidores: {{$user->followers->count()}}</p>
                                 @break
                                 @endif
                                 @endforeach
-                            </a>
+                            </div>
                         </div>
-                        <div class="flex flex-col justify-center">
-                            @foreach ($users as $user )
-                            @if($post->user_id == $user->id)
-                            <p class="text-xs font-semibold">{{ $user->name}}</p>
-                            @break
+
+                        <!-- Botão de Seguir -->
+                        @auth
+                        @if(Auth::id() !== $post->user_id)
+                        <form action="{{ route('follow_user', $post->user_id) }}" method="get">
+                            @csrf
+                            @if($follows->where('id_followed', $post->user_id)->where('id_follower', Auth::id())->first())
+                            <button type="submit" class="flex gap-1 items-center justify-center bg-yellow-300 text-gray-700 px-3 py-1 text-xs rounded-md hover:bg-yellow-200 transition-colors duration-300">
+                            Seguindo
+                            </button>
+                            @else
+                            <button type="submit" class="flex gap-1 items-center justify-center bg-gray-100 text-gray-700 px-3 py-1 text-xs rounded-md hover:bg-gray-200 transition-colors duration-300">
+                                Seguir
+                            </button>
                             @endif
-                            @endforeach
-                            <p class="text-xs text-gray-500">{{ date('d/m/Y', strtotime($post->published_at)) }}</p>
-                        </div>
+                        </form>
+                        @endif
+                        @endauth
                     </div>
+
                     <div class="flex-1 mb-2">
-                        <a href="{{ route('vizualizar_post', $post->id) }}" class="whitespace-normal text-sm font-semibold text-gray-800 hover:text-yellow-600 break-words">{{ $post->title }}</a>
+                        <a href="{{ route('vizualizar_post', $post->id) }}" class="text-lg font-semibold text-gray-800 hover:text-yellow-500 break-words">{{ $post->title }}</a>
                     </div>
                     <div class="w-full p-2 break-words flex-1">
-                        <p class="text-sm text-gray-700" id="add_rm_like">{{ $post->description }}</p>
+                        <p class="text-sm text-gray-700">{{ $post->description }}</p>
                     </div>
                     <div class="flex justify-between items-center mt-2">
-                        <div class="flex items-center gap-1 text-sm text-gray-600" id="success">
+                        <div class="flex items-center gap-1 text-sm text-gray-600">
                             <form action="{{route('like', $post->id)}}" method="get" class="flex gap-2 items-center justify-center">
                                 @csrf
-                                <button type="submit" class="focus:outline-none flex items-center justify-center gap-2 like-button">
+                                <button type="submit" class="flex items-center gap-2 focus:outline-none">
                                     @if($post->likes->where('user_id', Auth::id())->count())
                                     <i class="fa-solid fa-heart text-red-500"></i>
                                     @else
                                     <i class="fa-solid fa-heart text-gray-600 hover:text-red-500"></i>
                                     @endif
                                 </button>
-                                <div>
-                                    <p>{{ $post->likes->count() }}</p>
-                                </div>
+                                <p>{{ $post->likes->count() }}</p>
                             </form>
-                            <!-- Editar e deletar -->
                         </div>
                         @if(Auth::check() && Auth::user()->id == $post->user_id)
                         <div class="flex items-center gap-2 text-sm text-gray-600">
@@ -111,8 +130,8 @@ Home
                             <form action="{{ route('deletar_post', $post->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit">
-                                    <i class="fa-solid fa-trash text-red-500 hover:text-red-600"></i>
+                                <button type="submit" class="text-red-500 hover:text-red-600">
+                                    <i class="fa-solid fa-trash"></i>
                                 </button>
                             </form>
                         </div>

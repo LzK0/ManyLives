@@ -82,7 +82,7 @@
         </button>
     </main>
 
-    <script src="{{asset('js/scripts.js')}}"></script>
+    <script src="{{asset('js/script_app.js')}}"></script>
     @include('layouts.footer_link')
     <script src="@yield('js')"></script>
 </body>

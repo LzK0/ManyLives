@@ -14,6 +14,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use App\Models\Follow;
 
 
 class PostController extends Controller
@@ -131,11 +132,13 @@ class PostController extends Controller
     {
         $posts = Post::paginate(12);
         $users = User::all();
+        $follows = Follow::all();
         return view(
             "index",
             [
                 "posts" => $posts,
-                "users" => $users
+                "users" => $users,
+                "follows" => $follows
             ]
         );
     }
@@ -164,16 +167,37 @@ class PostController extends Controller
         return redirect()->back();
     }
 
+    public function follow_user($idFollowed)
+    {
+        $userFollowed = User::findOrFail($idFollowed);
+        $idFollower = Auth::id();
+        $follows = Follow::where('id_followed', $userFollowed->id)
+            ->where('id_follower', $idFollower)->first();
+
+        if ($follows) {
+            $follows->delete();
+        } else {
+            Follow::create([
+                'id_followed' => $idFollowed,
+                'id_follower' => $idFollower
+            ]);
+        }
+
+        return redirect()->back();
+    }
+
     public function vizualizar_post($id)  //Função para mostrar o post
     {
         $post = Post::findOrFail($id);
         $user = User::findOrFail($post->user_id);
         $mais_posts = Post::orderBy('created_at')->paginate(3);
+        $follows = Follow::all();
         if ($post) {
             return view("blog.vizualizar_post", [
                 "post" => $post,
                 "user" => $user,
-                "mais_posts" => $mais_posts
+                "mais_posts" => $mais_posts,
+                "follows" => $follows
             ]);
         } else {
             return redirect()->back()->with("error", "Erro ao vizualizar o post!");
@@ -265,10 +289,12 @@ class PostController extends Controller
     {
         $search = $request->input('search');
         $posts = Post::where('title', 'like', '%' . $search . '%')->orderBy("created_at")->paginate(12);
+        $follows = Follow::all();
+        $users = User::all();
         if (count($posts) == 0) {
             return redirect()->back()->with("error", "Nenhum resultado encontrado");
         } else {
-            return view('index', ['posts' => $posts, 'search' => $search]);
+            return view('index', ['posts' => $posts, 'search' => $search, 'follows' => $follows, 'users' => $users]);
         }
     }
     public function search_user_posts(Request $request) //Função para buscar o post (user_posts)
@@ -276,10 +302,12 @@ class PostController extends Controller
         $search = $request->input('search');
         $posts = Post::where('user_id', Auth::user()->id)
             ->where('title', 'like', "%$search")->orderBy("created_at")->paginate(9);
+        $follows = Follow::all();
+        $users = User::all();
         if (count($posts) == 0) {
             return redirect()->back()->with("error", "Nenhum resultado encontrado");
         } else {
-            return view('blog.user_posts', ['posts' => $posts]);
+            return view('blog.user_posts', ['posts' => $posts, 'search' => $search, 'follows' => $follows, 'users' => $users]);
         }
     }
 
@@ -325,6 +353,7 @@ class PostController extends Controller
     {
         $user = User::findOrFail($idUser);
         $posts = Post::where('user_id', $user->id)->orderBy("created_at")->paginate(9);
-        return view('blog.perfil_other', ['posts' => $posts, 'user' => $user]);
+        $follows = Follow::all();
+        return view('blog.perfil_other', ['posts' => $posts, 'user' => $user, 'follows' => $follows]);
     }
 }

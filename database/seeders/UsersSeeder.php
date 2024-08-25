@@ -62,6 +62,30 @@ class UsersSeeder extends Seeder
             'instagram' => 'https://www.instagram.com',
             'facebook' => 'https://www.facebook.com',
             'twitter' => 'https://www.twitter.com'
-        ]);
+        ]); {
+            $images = [
+                'images/users/seed_user/iza_profile.jpg',
+                'images/users/seed_user/antonio_profile.jpg',
+                'images/users/seed_user/white_cat.jpg',
+                'images/users/seed_user/marta_profile.jpg',
+                'images/users/seed_user/orange_cat.jpg',
+                'images/fixed/guestUser.jpg'
+            ];
+
+            $names = ['Alice', 'Bob', 'Charlie', 'Diana', 'Edward', 'Fiona', 'George', 'Hannah', 'Ian', 'Jane', 'Ken', 'Liam', 'Mia', 'Noah', 'Olivia', 'Paul', 'Quinn', 'Rachel', 'Sam', 'Tina', 'Uma', 'Vera', 'Will', 'Xander', 'Yara', 'Zane', 'Alex', 'Britt', 'Cory', 'Dana', 'Eli', 'Faye', 'Gus', 'Holly', 'Ivy', 'Jack', 'Kara', 'Leo', 'Maya', 'Nina', 'Oscar', 'Pia', 'Riley', 'Seth', 'Tess', 'Ulysses', 'Violet', 'Wyatt', 'Xena', 'Yves', 'Zara'];
+
+            foreach ($names as $index => $name) {
+                User::create([
+                    'name' => $name,
+                    'image' => $images[$index % count($images)],
+                    'email' => strtolower($name) . '@' . strtolower($name),
+                    'password' => encrypt('123456'),
+                    'links' => rand(0, 1),
+                    'instagram' => 'https://www.instagram.com/' . strtolower($name),
+                    'facebook' => 'https://www.facebook.com/' . strtolower($name),
+                    'twitter' => 'https://www.twitter.com/' . strtolower($name)
+                ]);
+            }
+        }
     }
 }

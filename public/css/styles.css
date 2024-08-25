@@ -46,3 +46,17 @@ body {
 .up {
     animation: Up 1.5s infinite;
 }
+
+.hidd {
+    opacity: 0;
+    filter: blur(2px);
+    transition: all ease .8s;
+    transform: translateY(30%);
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transition: all ease .8s;
+    transform: translateY(0);
+}

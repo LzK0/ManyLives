@@ -26,6 +26,7 @@ Route::get('/search_user_posts', [PostController::class, 'search_user_posts'])->
 
 // Rotas de likes
 Route::get('/like/{id}', [PostController::class, 'like'])->name('like');
+Route::get('/follow_user/{id}', [PostController::class, 'follow_user'])->name('follow_user');
 
 // Rotas do perfil
 Route::get('/perfil', [PostController::class, 'perfil'])->name('perfil')->middleware('auth');
