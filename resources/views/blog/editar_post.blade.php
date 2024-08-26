@@ -24,8 +24,11 @@ Editando Post
             <div class="h-[20%] w-full bg-zinc-500 flex items-center justify-center relative
             md:h-[35%]
             xl:h-[40%]">
-                @if($post->post_image)
-                <img src="{{asset('storage/' . $post->image_post)}}" alt="" class="w-full h-full" id="image_preview">
+                @if($post->image_post == 'error')
+                <div class="w-full h-full random-color">
+                </div>
+                @else
+                <img src="{{asset('storage/' . $post->image_post)}}" alt="" class="w-full h-full" id="image-preview">
                 @endif
                 <label for="image-post" class="w-[140px] h-[140px] flex items-center justify-center cursor-pointer bg-zinc-700 opacity-70 text-white rounded-full transition-all ease-linear duration-300 hover:bg-zinc-800 absolute">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -147,5 +150,5 @@ Editando Post
 @endsection
 
 @section('js')
-{{asset('js/script_editar_post.js')}}
+{{asset('js/script_edit_post.js')}}
 @endsection

@@ -22,7 +22,7 @@ PerfilPessoal
                 <div class="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden shadow-lg">
                     <img src="{{asset('storage/'.Auth::user()->image)}}" alt="" class="w-full h-full object-cover" id="image_preview">
                 </div>
-                <label for="image_perfil" class="absolute bottom-2 right-2 bg-yellow-500 transition-all ease-linear duration-300 cursor-pointer rounded-full p-2 hover:bg-yellow-400 shadow-md">
+                <label for="image_perfil" class="absolute bottom-2 right-2 bg-yellow-500 transition-all ease-linear duration-300 cursor-pointer rounded-full py-3 px-4 hover:bg-yellow-400 shadow-md">
                     <i class="fa-solid fa-pencil text-white"></i>
                 </label>
                 <input type="file" id="image_perfil" name="image" class="hidden">

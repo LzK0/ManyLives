@@ -4,8 +4,8 @@ var image = document.getElementById('image-post').addEventListener('change', fun
     let fr = new FileReader();
 
     fr.addEventListener("load", function () {
-        document.getElementById('image_preview').style.display = 'block';
-        document.getElementById('image_preview').src = fr.result;
+        document.getElementById('image-preview').style.display = 'block';
+        document.getElementById('image-preview').src = fr.result;
     });
 
     fr.readAsDataURL(files[0]);
