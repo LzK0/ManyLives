@@ -22,7 +22,7 @@ Route::get('/vizualizar_post/{id}', [PostController::class, 'vizualizar_post'])-
 
 // Rotas de pesquisa (index e user_posts)
 Route::get('/search_index', [PostController::class, 'search_index'])->name('search_index');
-Route::get('/search_user_posts', [PostController::class, 'search_user_posts'])->name('search_user_posts');
+Route::post('/search_user_posts', [PostController::class, 'search_user_posts'])->name('search_user_posts');
 
 // Rotas de likes
 Route::get('/like/{id}', [PostController::class, 'like'])->name('like');

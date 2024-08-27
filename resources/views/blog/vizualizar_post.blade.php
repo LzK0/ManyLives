@@ -139,7 +139,7 @@ use App\Models\User;
                                     <p class="text-sm text-gray-700 mt-2">{{ $mais_post->description }}</p>
 
                                     <div class="flex justify-between items-center mt-2">
-                                        <form action="{{ route('like', $mais_post->id) }}" method="get" class="flex items-center">
+                                        <form action="{{ route('like', $mais_post->id) }}" method="get" class="flex items-center gap-1">
                                             @csrf
                                             <button type="submit" class="flex items-center gap-2 focus:outline-none">
                                                 @if($mais_post->likes->where('user_id', Auth::id())->count())

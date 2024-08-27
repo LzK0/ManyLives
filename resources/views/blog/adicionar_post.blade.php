@@ -14,7 +14,6 @@ Adicionar POST
 
 @section('content')
 <section class="w-full h-[190%]">
-
     <div class="w-full h-full flex justify-center">
         <form action="{{route('cadastro_post', Auth::user()->id)}}" method="post" enctype="multipart/form-data" class="w-[80%] h-full">
             @csrf
@@ -92,7 +91,7 @@ Adicionar POST
                     </div>
                     <div class="w-full h-[90%] flex flex-col justify-center gap-3 items-center">
 
-                        <input type="text" name="title" id="title" placeholder="Título..." class="w-4/5 h-10 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500">
+                        <input type="text" name="title" id="title" value="{{old('title')}}" placeholder="Título..." class="w-4/5 h-10 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500">
                         @error('title')
                         <div class="text-red-600 w-4/5 mb-4">{{ $message }}</div>
                         @enderror

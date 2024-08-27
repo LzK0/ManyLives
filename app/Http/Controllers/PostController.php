@@ -125,7 +125,11 @@ class PostController extends Controller
     {
         $posts = Post::where("user_id", $id)->paginate(6);
         $user = User::findOrFail($id);
-        return view("blog.user_posts", ["posts" => $posts, 'user' => $user]);
+        $follows = Follow::all();
+        $users = User::all();
+        $followerUser = Follow::where('id_follower', Auth::user()->id)->get();
+        $postsFollowed = Post::whereIn('user_id', $followerUser->pluck('id_followed'))->paginate(9);
+        return view("blog.user_posts", ["posts" => $posts, 'user' => $user, 'follows' => $follows, 'users' => $users, 'postsFollowed' => $postsFollowed]);
     }
 
     public function deletar_post($id) //Função para deletar o post
@@ -178,7 +182,7 @@ class PostController extends Controller
     public function search_index(Request $request) //Função para buscar o post (index)
     {
         $search = $request->input('search');
-        $posts = Post::where('title', 'like', '%' . $search . '%')->orderBy("created_at")->paginate(12);
+        $posts = Post::where('title', 'like', "%" . "$search" . "%")->orderBy("created_at")->paginate(12);
         $follows = Follow::all();
         $users = User::all();
         if (count($posts) == 0) {
@@ -189,9 +193,10 @@ class PostController extends Controller
     }
     public function search_user_posts(Request $request) //Função para buscar o post (user_posts)
     {
-        $search = $request->input('search');
+        $data = $request->except('_token', 'submit');
+        $search = $data['search'];
         $posts = Post::where('user_id', Auth::user()->id)
-            ->where('title', 'like', "%$search")->orderBy("created_at")->paginate(9);
+            ->where('title', 'like', "%" . $search . "%")->orderBy("created_at")->paginate(9);
         $follows = Follow::all();
         $users = User::all();
         if (count($posts) == 0) {
