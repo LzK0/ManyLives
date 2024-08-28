@@ -125,6 +125,9 @@ use App\Models\User;
         <h2 class="text-2xl font-semibold text-gray-800 mb-6">Posts dos Usuários que Você Segue</h2>
         <section class="container mx-auto p-4" id="followed-posts-container">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-5">
+                @if($postsFollowed->isEmpty())
+                <p class="text-lg text-gray-700 mb-4">Voce não segue nenhum usuário.</p>
+                @endif
                 @foreach ($postsFollowed as $post)
                 <article class="border border-gray-300 bg-white rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg flex flex-col hidd">
                     @if($post->image_post && $post->image_post !== 'error')

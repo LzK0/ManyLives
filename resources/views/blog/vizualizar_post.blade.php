@@ -75,14 +75,14 @@ use App\Models\User;
                 @endif
 
                 <article class="w-full flex flex-col gap-6 overflow-hidden p-4">
-                    <h1 class="text-3xl text-center text-yellow-500">{{ $post->title }}</h1>
-                    <p class="text-xl text-center">{{ $post->content }}</p>
-                    <h2 class="text-2xl text-yellow-500 text-center">Ver mais:</h2>
+                    <h1 class="text-3xl text-center text-yellow-500 content-off">{{ $post->title }}</h1>
+                    <p class="text-xl text-center content-off">{{ $post->content }}</p>
+                    <h2 class="text-2xl text-yellow-500 text-center content-off">Ver mais:</h2>
 
                     <section class="container mx-auto p-4" id="posts-container">
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             @foreach($mais_posts as $mais_post)
-                            <article class="border border-gray-300 bg-white rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg flex flex-col">
+                            <article class="border border-gray-300 bg-white rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg flex flex-col hidd">
                                 @if($mais_post->image_post && $mais_post->image_post !== 'error')
                                 <div class="w-full h-36 overflow-hidden rounded-t-lg">
                                     <img src="{{ asset('storage/'.$mais_post->image_post) }}" alt="Post Image" class="w-full h-full object-cover">

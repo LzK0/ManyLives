@@ -12,6 +12,7 @@ var image = document.getElementById('image_perfil').addEventListener('change', f
 
     fr.readAsDataURL(files[0]);
 });
+
 if (show_links) {
     if (show_links.checked) {
         show_links.addEventListener('click', function () {

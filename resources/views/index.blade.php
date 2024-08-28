@@ -164,7 +164,7 @@ Home
             <p>CSS (Tailwind)</p>
         </div>
         <div class="sm:py-3 py-1 flex items-center justify-center text-center flex-1 transition-all ease-linear duration-300 rounded-md bg-yellow-500 hover:bg-yellow-600">
-            <p>Javascript (Ajax)</p>
+            <p>Javascript'</p>
         </div>
         <div class="sm:py-3 py-1 flex items-center justify-center text-center col-start-1 col-end-3 transition-all ease-linear duration-300 rounded-md bg-purple-500 hover:bg-purple-600">
             <p>PHP (Laravel)</p>

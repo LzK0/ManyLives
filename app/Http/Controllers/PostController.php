@@ -182,7 +182,7 @@ class PostController extends Controller
     public function search_index(Request $request) //Função para buscar o post (index)
     {
         $search = $request->input('search');
-        $posts = Post::where('title', 'like', "%" . "$search" . "%")->orderBy("created_at")->paginate(12);
+        $posts = Post::where('title', 'like', "%" . "$search" . "%")->orderBy("created_at")->paginate(20);
         $follows = Follow::all();
         $users = User::all();
         if (count($posts) == 0) {
@@ -196,7 +196,7 @@ class PostController extends Controller
         $data = $request->except('_token', 'submit');
         $search = $data['search'];
         $posts = Post::where('user_id', Auth::user()->id)
-            ->where('title', 'like', "%" . $search . "%")->orderBy("created_at")->paginate(9);
+            ->where('title', 'like', "%" . $search . "%")->orderBy("created_at")->paginate(20);
         $follows = Follow::all();
         $users = User::all();
         if (count($posts) == 0) {
@@ -223,21 +223,15 @@ class PostController extends Controller
         $data = $request->except('_token', 'password', 'password_confirmation', 'submit');
         $perfil = User::findOrFail($id);
 
-        if ($perfil->image == 'images/fixed/guestUser.jpg') {
-            $imgContent = file_get_contents($perfil->image);
-            $destinationPath = storage_path('app/public/images/fixed/guestUser.jpg');
-            file_put_contents($destinationPath, $imgContent);
-        }
-
         $data['links'] = $request->links == 'on' ? 1 : 0;
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            if ($perfil->image != NULL && Storage::disk('public')->exists($perfil->image)) {
+            if ($perfil->image != NULL && Storage::disk('public')->exists($perfil->image) && $perfil->image != 'images/fixed/guestUser.jpg') {
                 Storage::disk('public')->delete($perfil->image);
             }
             $requestImage = $request->file('image')->store('images/users', 'public');
             $data['image'] = $requestImage;
         } else {
-            unset($data['image']);
+            unset($data['image']); 
         }
 
         $update = $perfil->update($data);
