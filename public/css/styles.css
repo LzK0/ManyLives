@@ -1,0 +1,62 @@
+/* definindo medidas */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Mudando a fonte de tudo */
+body {
+    font-family: "Mulish", sans-serif;
+}
+
+/* Mudando a sidebar */
+#sidebar.sidebar-move {
+    width: 200px;
+}
+
+#sidebar-toggle.toggle-move {
+    right: -10px;
+    transform: rotate(180deg);
+}
+
+/* Mostrando o nome quando a sidebar estiver aberta */
+#user-name.show-name {
+    display: block;
+}
+
+@keyframes Up {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.up {
+    animation: Up 1.5s infinite;
+}
+
+.hidd {
+    opacity: 0;
+    filter: blur(2px);
+    transition: all ease .8s;
+    transform: translateY(30%);
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transition: all ease .8s;
+    transform: translateY(0);
+}
